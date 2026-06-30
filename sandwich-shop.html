@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Coming Soon — Sandwich Shop Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:#1A0A00;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+canvas{position:fixed;inset:0;z-index:0;}
+.overlay{position:fixed;inset:0;z-index:1;background:linear-gradient(135deg,rgba(26,10,0,0.9) 0%,rgba(26,10,0,0.6) 100%);}
+.content{position:relative;z-index:2;text-align:center;padding:40px;}
+.tag{font-size:11px;font-weight:700;letter-spacing:4px;color:rgba(255,200,80,0.7);text-transform:uppercase;margin-bottom:16px;opacity:0;}
+h1{font-family:'Bangers',cursive;font-size:clamp(48px,8vw,100px);letter-spacing:3px;color:#fff;margin-bottom:8px;opacity:0;line-height:.9;}
+h1 em{color:#FFD060;font-style:normal;}
+.sub{font-family:'Bebas Neue',cursive;font-size:clamp(20px,3vw,36px);letter-spacing:4px;color:rgba(255,200,80,0.7);margin-bottom:24px;opacity:0;}
+p{font-size:16px;color:rgba(255,255,255,0.6);max-width:480px;line-height:1.7;margin:0 auto 32px;opacity:0;}
+.note{background:rgba(255,208,96,0.1);border:1px solid rgba(255,208,96,0.3);border-radius:8px;padding:20px 32px;font-size:14px;color:rgba(255,200,80,0.8);max-width:460px;opacity:0;}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="overlay"></div>
+<div class="content">
+  <p class="tag" id="t1">Strategy Growth Consulting · Client Demo</p>
+  <h1 id="t2">YOUR<br><em>SANDWICH</em><br>SHOP</h1>
+  <p class="sub" id="t3">— 3D ANIMATED WEBSITE —</p>
+  <p id="t4">This demo is being built! Share your shop name, brand colors, and any photos and we'll build a full 3D animated website just like the KY Flooring and KY Moldman demos.</p>
+  <div class="note" id="t5">🥪 Flying ingredients, stacked sandwich 3D build animation, GSAP scroll effects, Square POS integration links — all coming once we have your brand details.</div>
+</div>
+<script>
+// 3D floating ingredients
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60,1,0.1,100);
+camera.position.set(0,0,12);
+function resize(){
+  renderer.setSize(innerWidth,innerHeight,false);
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+}
+resize(); window.addEventListener('resize',resize);
+scene.add(new THREE.AmbientLight(0xfff5e0,0.6));
+const dl=new THREE.DirectionalLight(0xffd060,1.4);
+dl.position.set(5,10,8);
+scene.add(dl);
+const pl=new THREE.PointLight(0xff8800,1.2,20);
+pl.position.set(-4,3,4);
+scene.add(pl);
+
+const colors=[0xF5E642,0xE85D2A,0x8BC34A,0xD4A574,0xFF6B35,0xFFF8DC,0xC8E6C9];
+const shapes=[];
+for(let i=0;i<28;i++){
+  let geo;
+  const r=Math.random();
+  if(r<0.3) geo=new THREE.BoxGeometry(0.4+Math.random()*0.6,0.1+Math.random()*0.3,0.4+Math.random()*0.5);
+  else if(r<0.6) geo=new THREE.CylinderGeometry(0.15+Math.random()*0.25,0.15+Math.random()*0.25,0.08+Math.random()*0.2,8);
+  else geo=new THREE.SphereGeometry(0.1+Math.random()*0.2,8,6);
+  const mat=new THREE.MeshStandardMaterial({color:colors[i%colors.length],roughness:0.5,metalness:0.1});
+  const mesh=new THREE.Mesh(geo,mat);
+  mesh.position.set((Math.random()-0.5)*16,(Math.random()-0.5)*10,(Math.random()-0.5)*8);
+  mesh.rotation.set(Math.random()*Math.PI,Math.random()*Math.PI,Math.random()*Math.PI);
+  mesh.userData={
+    rotSpeed:{x:(Math.random()-.5)*0.012,y:(Math.random()-.5)*0.012,z:(Math.random()-.5)*0.008},
+    floatOffset:Math.random()*Math.PI*2,
+    floatSpeed:0.3+Math.random()*0.4,
+    floatAmp:0.08+Math.random()*0.12,
+    origY:mesh.position.y,
+  };
+  shapes.push(mesh);
+  scene.add(mesh);
+}
+let t=0;
+function animate(){
+  requestAnimationFrame(animate);
+  t+=0.01;
+  shapes.forEach(s=>{
+    s.rotation.x+=s.userData.rotSpeed.x;
+    s.rotation.y+=s.userData.rotSpeed.y;
+    s.rotation.z+=s.userData.rotSpeed.z;
+    s.position.y=s.userData.origY+Math.sin(t*s.userData.floatSpeed+s.userData.floatOffset)*s.userData.floatAmp;
+  });
+  renderer.render(scene,camera);
+}
+animate();
+
+gsap.to('#t1',{opacity:1,y:0,duration:0.7,delay:0.3});
+gsap.to('#t2',{opacity:1,y:0,duration:0.9,delay:0.6,ease:'power4.out'});
+gsap.to('#t3',{opacity:1,y:0,duration:0.6,delay:1.0});
+gsap.to('#t4',{opacity:1,y:0,duration:0.6,delay:1.3});
+gsap.to('#t5',{opacity:1,y:0,duration:0.6,delay:1.6});
+</script>
+</body>
+</html>
