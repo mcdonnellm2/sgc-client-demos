@@ -8,94 +8,73 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Inter',sans-serif;background:#060E18;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;}
-.brand{font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:5px;color:rgba(255,255,255,0.3);margin-bottom:12px;text-align:center;}
+body{font-family:'Inter',sans-serif;background:#060E18;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 20px;}
+.brand{font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:5px;color:rgba(255,255,255,0.28);margin-bottom:12px;text-align:center;}
 h1{font-family:'Bangers',cursive;font-size:clamp(40px,6vw,80px);letter-spacing:3px;text-align:center;margin-bottom:6px;background:linear-gradient(135deg,#7EB6E8,#A8D4F5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0;}
-.tagline{font-size:14px;color:rgba(255,255,255,0.4);margin-bottom:52px;text-align:center;letter-spacing:1px;opacity:0;}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;width:100%;}
-.card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:32px 28px;text-decoration:none;color:#fff;transition:transform .25s,box-shadow .25s,border-color .25s;opacity:0;position:relative;overflow:hidden;}
+.tagline{font-size:14px;color:rgba(255,255,255,0.35);margin-bottom:52px;text-align:center;letter-spacing:1px;opacity:0;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:980px;width:100%;}
+.card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:32px 28px;text-decoration:none;color:#fff;transition:transform .25s,box-shadow .25s,border-color .3s;opacity:0;position:relative;overflow:hidden;}
 .card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;border-radius:14px;}
-.card.flooring::before{background:linear-gradient(135deg,rgba(27,58,92,0.7),rgba(36,80,122,0.3));}
-.card.moldman::before{background:linear-gradient(135deg,rgba(13,43,13,0.7),rgba(34,107,26,0.3));}
-.card.sandwich::before{background:linear-gradient(135deg,rgba(60,30,0,0.7),rgba(120,60,0,0.3));}
+.card.fl::before{background:linear-gradient(135deg,rgba(27,58,92,0.75),rgba(36,80,122,0.3));}
+.card.mm::before{background:linear-gradient(135deg,rgba(13,43,13,0.75),rgba(34,107,26,0.3));}
+.card.sub::before{background:linear-gradient(135deg,rgba(40,15,0,0.8),rgba(100,30,0,0.3));}
 .card:hover{transform:translateY(-8px);box-shadow:0 24px 64px rgba(0,0,0,0.5);}
 .card:hover::before{opacity:1;}
-.card:hover.flooring{border-color:rgba(126,182,232,0.4);}
-.card:hover.moldman{border-color:rgba(77,217,77,0.4);}
-.card:hover.sandwich{border-color:rgba(255,200,80,0.4);}
-.card-inner{position:relative;z-index:1;}
-.card-tag{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-.card-tag::before{content:'';width:16px;height:2px;display:inline-block;}
-.flooring .card-tag{color:#7EB6E8;}
-.flooring .card-tag::before{background:#7EB6E8;}
-.moldman .card-tag{color:#4DD94D;}
-.moldman .card-tag::before{background:#4DD94D;}
-.sandwich .card-tag{color:#FFD060;}
-.sandwich .card-tag::before{background:#FFD060;}
-.card h2{font-family:'Bangers',cursive;font-size:30px;letter-spacing:2px;margin-bottom:10px;line-height:.95;}
-.card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;margin-bottom:22px;}
-.card-tech{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px;}
-.tech-pill{font-size:10px;font-weight:600;letter-spacing:.5px;padding:3px 9px;border-radius:12px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);}
-.card-cta{font-family:'Bebas Neue',cursive;font-size:17px;letter-spacing:2px;padding:11px 24px;border-radius:4px;display:inline-block;transition:opacity .2s;}
-.flooring .card-cta{background:#7EB6E8;color:#07141F;}
-.moldman .card-cta{background:#22A422;color:#fff;}
-.sandwich .card-cta{background:#FFD060;color:#1A0A00;}
-.card:hover .card-cta{opacity:0.88;}
-.footer-note{margin-top:40px;font-size:12px;color:rgba(255,255,255,0.2);text-align:center;letter-spacing:.5px;opacity:0;}
+.card:hover.fl{border-color:rgba(126,182,232,0.4);}
+.card:hover.mm{border-color:rgba(77,217,77,0.4);}
+.card:hover.sub{border-color:rgba(255,107,26,0.5);}
+.ci{position:relative;z-index:1;}
+.ct{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.ct::before{content:'';width:16px;height:2px;display:inline-block;}
+.fl .ct{color:#7EB6E8;} .fl .ct::before{background:#7EB6E8;}
+.mm .ct{color:#4DD94D;} .mm .ct::before{background:#4DD94D;}
+.sub .ct{color:#FF6B1A;} .sub .ct::before{background:#FF6B1A;}
+.card h2{font-family:'Bangers',cursive;font-size:28px;letter-spacing:2px;margin-bottom:10px;line-height:.95;}
+.card p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.65;margin-bottom:20px;}
+.pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
+.pill{font-size:10px;font-weight:600;letter-spacing:.5px;padding:3px 9px;border-radius:12px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.45);}
+.cta{font-family:'Bebas Neue',cursive;font-size:17px;letter-spacing:2px;padding:11px 24px;border-radius:4px;display:inline-block;}
+.fl .cta{background:#7EB6E8;color:#07141F;}
+.mm .cta{background:#22A422;color:#fff;}
+.sub .cta{background:#CC2200;color:#fff;}
+.fn{margin-top:40px;font-size:12px;color:rgba(255,255,255,0.18);text-align:center;letter-spacing:.5px;opacity:0;}
 @media(max-width:700px){.grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 <div class="brand">STRATEGY GROWTH CONSULTING</div>
 <h1 id="h1">CLIENT DEMO SITES</h1>
-<p class="tagline" id="tl">3D Animated · GSAP ScrollTrigger · Three.js WebGL · Mobile Responsive</p>
-
+<p class="tagline" id="tl">Three.js WebGL · GSAP ScrollTrigger · Mobile Responsive · Built by SGC</p>
 <div class="grid">
-  <a href="ky-flooring-gsap.html" class="card flooring" id="c1">
-    <div class="card-inner">
-      <div class="card-tag">Home Services Demo</div>
+  <a href="ky-flooring-gsap.html" class="card fl" id="c1">
+    <div class="ci">
+      <div class="ct">Home Services</div>
       <h2>KY FLOORING<br>&amp; CABINETS</h2>
-      <p>3D kitchen assembly — floor planks fly in, cabinets drop into place. GSAP ScrollTrigger reveals. Mouse parallax on the 3D scene.</p>
-      <div class="card-tech">
-        <span class="tech-pill">Three.js</span>
-        <span class="tech-pill">GSAP</span>
-        <span class="tech-pill">ScrollTrigger</span>
-        <span class="tech-pill">WebGL</span>
-      </div>
-      <div class="card-cta">View Demo →</div>
+      <p>3D kitchen build — 90 hardwood planks fly in, cabinets drop, island rises. GSAP scroll reveals. Mouse parallax.</p>
+      <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span><span class="pill">ScrollTrigger</span><span class="pill">WebGL</span></div>
+      <div class="cta">View Demo →</div>
     </div>
   </a>
-  <a href="ky-moldman-gsap.html" class="card moldman" id="c2">
-    <div class="card-inner">
-      <div class="card-tag">Home Services Demo</div>
+  <a href="ky-moldman-gsap.html" class="card mm" id="c2">
+    <div class="ci">
+      <div class="ct">Home Services</div>
       <h2>KY<br>MOLDMAN</h2>
-      <p>3D restoration scene — pressure wash spray particles, green shockwave rings, mold spores dissolving. Dramatic WebGL atmosphere.</p>
-      <div class="card-tech">
-        <span class="tech-pill">Three.js</span>
-        <span class="tech-pill">GSAP</span>
-        <span class="tech-pill">ScrollTrigger</span>
-        <span class="tech-pill">Particle FX</span>
-      </div>
-      <div class="card-cta">View Demo →</div>
+      <p>3D restoration scene — pressure wash spray sweeps the house, green shockwave rings, mold dissolves, clean panels fly in.</p>
+      <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span><span class="pill">Particle FX</span><span class="pill">WebGL</span></div>
+      <div class="cta">View Demo →</div>
     </div>
   </a>
-  <a href="sandwich-shop.html" class="card sandwich" id="c3">
-    <div class="card-inner">
-      <div class="card-tag">Restaurant Demo · Coming Soon</div>
-      <h2>SANDWICH<br>SHOP</h2>
-      <p>3D sandwich assembly animation — ingredients fly in and stack in real time. Square POS online ordering integration. Share your brand details to build it out.</p>
-      <div class="card-tech">
-        <span class="tech-pill">Three.js</span>
-        <span class="tech-pill">GSAP</span>
-        <span class="tech-pill">Square POS</span>
-        <span class="tech-pill">In Progress</span>
-      </div>
-      <div class="card-cta">Preview →</div>
+  <a href="big-fat-smoky-subs.html" class="card sub" id="c3">
+    <div class="ci">
+      <div class="ct">Restaurant</div>
+      <h2>BIG FAT<br>SMOKY SUBS</h2>
+      <p>3D sub assembly — every layer flies in and stacks live in WebGL. Ember sparks, smoke particles, fire lighting. Sheetz-style dark menu cards.</p>
+      <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span><span class="pill">Square POS</span><span class="pill">Fire FX</span></div>
+      <div class="cta">View Demo →</div>
     </div>
   </a>
 </div>
-<p class="footer-note" id="fn">Demos built by Strategy Growth Consulting · strategygc.com · Powered by SGC AI Operations</p>
-
+<p class="fn" id="fn">Built by Strategy Growth Consulting · strategygc.com · AI-Powered Website Development</p>
 <script>
 gsap.to('#h1',{opacity:1,y:0,duration:0.8,delay:0.2,ease:'power3.out'});
 gsap.to('#tl',{opacity:1,duration:0.7,delay:0.5});
