@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SGC Client Demos</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:#07141F;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;}
+.logo{font-family:'Bebas Neue',cursive;font-size:14px;letter-spacing:4px;color:rgba(255,255,255,0.4);margin-bottom:12px;}
+h1{font-family:'Bangers',cursive;font-size:clamp(40px,6vw,72px);letter-spacing:3px;margin-bottom:8px;background:linear-gradient(135deg,#7EB6E8,#A8D4F5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.sub{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:48px;letter-spacing:1px;}
+.demos{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:800px;width:100%;}
+.card{background:rgba(255,255,255,0.05);border:1px solid rgba(126,182,232,0.2);border-radius:12px;padding:32px;text-decoration:none;color:#fff;transition:all .25s;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;}
+.card.flooring::before{background:linear-gradient(135deg,rgba(27,58,92,0.8),rgba(36,80,122,0.4));}
+.card.moldman::before{background:linear-gradient(135deg,rgba(13,43,13,0.8),rgba(34,107,26,0.4));}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.card:hover::before{opacity:1;}
+.card-inner{position:relative;z-index:1;}
+.card-tag{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;}
+.flooring .card-tag{color:#7EB6E8;}
+.moldman .card-tag{color:#4DD94D;}
+.card h2{font-family:'Bangers',cursive;font-size:32px;letter-spacing:2px;margin-bottom:8px;line-height:1;}
+.card p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:20px;}
+.card-cta{font-family:'Bebas Neue',cursive;font-size:18px;letter-spacing:2px;padding:10px 24px;border-radius:4px;display:inline-block;}
+.flooring .card-cta{background:#7EB6E8;color:#07141F;}
+.moldman .card-cta{background:#22A422;color:#fff;}
+.card:hover .card-cta{opacity:0.9;}
+.badge{margin-top:32px;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:1px;}
+@media(max-width:600px){.demos{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="logo">STRATEGY GROWTH CONSULTING</div>
+<h1>Client Demo Sites</h1>
+<p class="sub">3D Interactive Website Demos — Powered by SGC</p>
+<div class="demos">
+  <a href="ky-flooring-3d.html" class="card flooring">
+    <div class="card-inner">
+      <div class="card-tag">Client Demo</div>
+      <h2>KY FLOORING<br>&amp; CABINETS</h2>
+      <p>3D animated kitchen build experience — floor planks and cabinets fly in and assemble in real time using WebGL.</p>
+      <div class="card-cta">View Demo →</div>
+    </div>
+  </a>
+  <a href="ky-moldman-3d.html" class="card moldman">
+    <div class="card-inner">
+      <div class="card-tag">Client Demo</div>
+      <h2>KY<br>MOLDMAN</h2>
+      <p>3D mold restoration scene — green spray particles, clean panels flying in, and a dramatic restoration transformation.</p>
+      <div class="card-cta">View Demo →</div>
+    </div>
+  </a>
+</div>
+<p class="badge">© 2025 Strategy Growth Consulting · strategygc.com</p>
+</body>
+</html>
