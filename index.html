@@ -12,40 +12,39 @@ body{font-family:'Inter',sans-serif;background:#060E18;color:#fff;min-height:100
 .brand{font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:5px;color:rgba(255,255,255,0.28);margin-bottom:12px;text-align:center;}
 h1{font-family:'Bangers',cursive;font-size:clamp(36px,5vw,72px);letter-spacing:3px;text-align:center;margin-bottom:6px;background:linear-gradient(135deg,#7EB6E8,#A8D4F5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:0;}
 .tagline{font-size:14px;color:rgba(255,255,255,0.35);margin-bottom:48px;text-align:center;letter-spacing:1px;opacity:0;}
-.section-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:14px;width:100%;max-width:980px;opacity:0;}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:980px;width:100%;margin-bottom:12px;}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:980px;width:100%;margin-bottom:40px;}
+.section-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:14px;width:100%;max-width:1000px;opacity:0;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1000px;width:100%;margin-bottom:12px;}
+.grid2{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1000px;width:100%;margin-bottom:40px;}
 .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:28px 24px;text-decoration:none;color:#fff;transition:transform .25s,box-shadow .25s,border-color .3s;opacity:0;position:relative;overflow:hidden;}
 .card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;border-radius:12px;}
 .card.fl::before{background:linear-gradient(135deg,rgba(27,58,92,0.75),rgba(36,80,122,0.3));}
+.card.fl2::before{background:linear-gradient(135deg,rgba(15,40,80,0.85),rgba(36,80,122,0.4));}
 .card.mm::before{background:linear-gradient(135deg,rgba(13,43,13,0.75),rgba(34,107,26,0.3));}
-.card.mm2::before{background:linear-gradient(135deg,rgba(5,26,5,0.85),rgba(34,107,26,0.4));}
 .card.sub::before{background:linear-gradient(135deg,rgba(40,15,0,0.8),rgba(100,30,0,0.3));}
 .card:hover{transform:translateY(-6px);box-shadow:0 20px 56px rgba(0,0,0,0.5);}
 .card:hover::before{opacity:1;}
-.card:hover.fl{border-color:rgba(126,182,232,0.4);}
-.card:hover.mm,.card:hover.mm2{border-color:rgba(77,217,77,0.4);}
+.card:hover.fl,.card:hover.fl2{border-color:rgba(126,182,232,0.4);}
+.card:hover.mm{border-color:rgba(77,217,77,0.4);}
 .card:hover.sub{border-color:rgba(255,107,26,0.5);}
 .v-badge{position:absolute;top:12px;right:12px;font-size:9px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:10px;}
-.v1{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);}
-.v2{background:rgba(77,217,77,0.2);color:#4DD94D;}
+.v1{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.45);}
+.v2b{background:rgba(126,182,232,0.2);color:#7EB6E8;}
 .ci{position:relative;z-index:1;}
 .ct{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
 .ct::before{content:'';width:14px;height:2px;display:inline-block;}
-.fl .ct{color:#7EB6E8;} .fl .ct::before{background:#7EB6E8;}
-.mm .ct,.mm2 .ct{color:#4DD94D;} .mm .ct::before,.mm2 .ct::before{background:#4DD94D;}
+.fl .ct,.fl2 .ct{color:#7EB6E8;} .fl .ct::before,.fl2 .ct::before{background:#7EB6E8;}
+.mm .ct{color:#4DD94D;} .mm .ct::before{background:#4DD94D;}
 .sub .ct{color:#FF6B1A;} .sub .ct::before{background:#FF6B1A;}
 .card h2{font-family:'Bangers',cursive;font-size:24px;letter-spacing:2px;margin-bottom:8px;line-height:.95;}
 .card p{font-size:12px;color:rgba(255,255,255,0.48);line-height:1.6;margin-bottom:16px;}
 .pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px;}
 .pill{font-size:9px;font-weight:600;letter-spacing:.5px;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4);}
-.new-pill{background:rgba(77,217,77,0.15);color:#4DD94D;}
+.new-pill{background:rgba(126,182,232,0.15);color:#7EB6E8;}
 .cta{font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:2px;padding:10px 22px;border-radius:4px;display:inline-block;}
-.fl .cta{background:#7EB6E8;color:#07141F;}
+.fl .cta,.fl2 .cta{background:#7EB6E8;color:#07141F;}
 .mm .cta{background:#22A422;color:#fff;}
-.mm2 .cta{background:#4DD94D;color:#050D05;}
 .sub .cta{background:#CC2200;color:#fff;}
-.fn{margin-top:32px;font-size:12px;color:rgba(255,255,255,0.18);text-align:center;letter-spacing:.5px;opacity:0;}
+.fn{margin-top:32px;font-size:12px;color:rgba(255,255,255,0.18);text-align:center;opacity:0;}
 @media(max-width:700px){.grid,.grid2{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -54,14 +53,24 @@ h1{font-family:'Bangers',cursive;font-size:clamp(36px,5vw,72px);letter-spacing:3
 <h1 id="h1">CLIENT DEMO SITES</h1>
 <p class="tagline" id="tl">Three.js WebGL · GSAP ScrollTrigger · Mobile Responsive</p>
 
-<div class="section-label" id="sl1">Client Websites</div>
+<div class="section-label" id="sl1">Active Client Demos</div>
 <div class="grid">
-  <a href="ky-flooring-gsap.html" class="card fl" id="c1">
+  <a href="ky-flooring-v2.html" class="card fl2" id="c1">
+    <span class="v-badge v2b">VERSION 2</span>
+    <div class="ci">
+      <div class="ct">Home Services · Updated</div>
+      <h2>KY FLOORING<br>&amp; CABINETS</h2>
+      <p>3D kitchen build + 3 new services: 24-Hr Water Removal, Floor Staining &amp; Sealing, Basement Remodeling (Brickwork &amp; Stucco)</p>
+      <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span><span class="pill new-pill">Updated</span></div>
+      <div class="cta">View v2 →</div>
+    </div>
+  </a>
+  <a href="ky-moldman-gsap.html" class="card mm" id="c2">
     <div class="ci">
       <div class="ct">Home Services</div>
-      <h2>KY FLOORING<br>&amp; CABINETS</h2>
-      <p>3D kitchen build — planks fly in, cabinets drop. GSAP scroll reveals. Mouse parallax.</p>
-      <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span><span class="pill">WebGL</span></div>
+      <h2>KY<br>MOLDMAN</h2>
+      <p>3D restoration scene — pressure wash spray, green shockwave rings, mold dissolving. GSAP scroll reveals.</p>
+      <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span><span class="pill">Particle FX</span></div>
       <div class="cta">View Demo →</div>
     </div>
   </a>
@@ -69,52 +78,52 @@ h1{font-family:'Bangers',cursive;font-size:clamp(36px,5vw,72px);letter-spacing:3
     <div class="ci">
       <div class="ct">Restaurant</div>
       <h2>BIG FAT<br>SMOKY SUBS</h2>
-      <p>3D sub assembly — layers stack live. Ember sparks, smoke, fire lighting. Square POS.</p>
+      <p>3D sub assembly — ingredients stack live. Ember sparks, smoke, fire lighting. Square POS integration.</p>
       <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span><span class="pill">Square POS</span></div>
       <div class="cta">View Demo →</div>
-    </div>
-  </a>
-  <a href="ky-moldman-v2.html" class="card mm2" id="c4">
-    <span class="v-badge v2">VERSION 2</span>
-    <div class="ci">
-      <div class="ct">Home Services · Updated</div>
-      <h2>KY<br>MOLDMAN</h2>
-      <p>No character · Larger slogan · 3 new services · Softwash own section · Corrected photos · 859.705.8665 only</p>
-      <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span><span class="pill new-pill">Updated</span></div>
-      <div class="cta">View v2 →</div>
     </div>
   </a>
 </div>
 
 <div class="section-label" id="sl2">Previous Versions</div>
 <div class="grid2">
-  <a href="ky-moldman-gsap.html" class="card mm" id="c2">
+  <a href="ky-flooring-gsap.html" class="card fl" id="c4">
     <span class="v-badge v1">VERSION 1</span>
     <div class="ci">
       <div class="ct">Home Services · Original</div>
-      <h2>KY MOLDMAN — V1</h2>
-      <p>Original version — kept for reference. 3D restoration scene, GSAP scroll animations.</p>
+      <h2>KY FLOORING v1</h2>
+      <p>Original version — kept for reference. 3D kitchen build, 6 product cards, GSAP scroll.</p>
       <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span><span class="pill">Original</span></div>
       <div class="cta">View v1 →</div>
     </div>
   </a>
-  <a href="sandwich-shop.html" class="card sub" id="c5">
+  <a href="ky-moldman-v2.html" class="card mm" id="c5">
+    <span class="v-badge v1">SAME AS V1</span>
     <div class="ci">
-      <div class="ct">Restaurant · Preview</div>
-      <h2>SANDWICH SHOP<br>PLACEHOLDER</h2>
-      <p>Early placeholder with floating 3D ingredients. Superseded by Big Fat Smoky Subs demo.</p>
+      <div class="ct">Home Services · Reference</div>
+      <h2>KY MOLDMAN v2</h2>
+      <p>Reverted to original GSAP version. Kept as reference file.</p>
+      <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span></div>
+      <div class="cta">View →</div>
+    </div>
+  </a>
+  <a href="sandwich-shop.html" class="card sub" id="c6">
+    <div class="ci">
+      <div class="ct">Restaurant · Placeholder</div>
+      <h2>SANDWICH SHOP</h2>
+      <p>Early placeholder. Superseded by Big Fat Smoky Subs full demo.</p>
       <div class="pills"><span class="pill">Three.js</span><span class="pill">GSAP</span></div>
       <div class="cta">Preview →</div>
     </div>
   </a>
 </div>
 
-<p class="fn" id="fn">Built by Strategy Growth Consulting · strategygc.com · AI-Powered Development</p>
+<p class="fn" id="fn">Built by Strategy Growth Consulting · strategygc.com</p>
 <script>
 gsap.to('#h1',{opacity:1,y:0,duration:0.8,delay:0.2,ease:'power3.out'});
 gsap.to('#tl',{opacity:1,duration:0.7,delay:0.5});
-gsap.to(['#sl1','#sl2'],{opacity:1,duration:0.5,delay:0.6,stagger:0.1});
-gsap.to(['#c1','#c2','#c3','#c4','#c5'],{opacity:1,y:0,duration:0.7,stagger:0.12,delay:0.7,ease:'power3.out'});
+gsap.to(['#sl1','#sl2'],{opacity:1,duration:0.5,delay:0.6,stagger:0.15});
+gsap.to(['#c1','#c2','#c3','#c4','#c5','#c6'],{opacity:1,y:0,duration:0.7,stagger:0.1,delay:0.75,ease:'power3.out'});
 gsap.to('#fn',{opacity:1,duration:0.6,delay:1.5});
 </script>
 </body>
