@@ -210,7 +210,7 @@ section{padding:96px 40px;}
 /* ── FEATURE SPLIT ── */
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:0;}
 .feat.rev .feat-img{order:2;}
-.feat-img-wrap{border-radius:14px;overflow:hidden;position:relative;box-shadow:0 24px 64px rgba(27,58,92,0.18);opacity:0;transform:translateX(-40px);}
+.feat-img-wrap{border-radius:14px;overflow:hidden;position:relative;box-shadow:0 24px 64px rgba(27,58,92,0.18);}
 .feat.rev .feat-img-wrap{transform:translateX(40px);}
 .feat-img-wrap img{width:100%;height:440px;object-fit:cover;transition:transform .5s;}
 .feat-img-wrap:hover img{transform:scale(1.03);}
@@ -221,7 +221,7 @@ section{padding:96px 40px;}
   border-radius:6px;padding:8px 16px;
   font-family:'Black Ops One',cursive;font-size:11px;color:var(--accent2);letter-spacing:1px;
 }
-.feat-content{opacity:0;transform:translateX(40px);}
+.feat-content{}
 .feat.rev .feat-content{transform:translateX(-40px);}
 .feat-content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px;}
 .feat-pts{list-style:none;display:flex;flex-direction:column;gap:12px;margin:20px 0 28px;}
@@ -559,6 +559,7 @@ footer li a:hover{color:var(--accent2);}
   <a href="#products" onclick="this.closest('.mob').classList.remove('open')">Flooring</a>
   <a href="#cabinets" onclick="this.closest('.mob').classList.remove('open')">Cabinets</a>
   <a href="#gallery" onclick="this.closest('.mob').classList.remove('open')">Gallery</a>
+  <a href="#showroom" onclick="this.closest('.mob').classList.remove('open')">Showroom</a>
   <a href="#about" onclick="this.closest('.mob').classList.remove('open')">About</a>
   <a href="tel:8597058665">📞 859.705.8665</a>
 </div>
