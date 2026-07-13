@@ -3,17 +3,23 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Big Fat Smoky Subs — Hot. Smoky. Loaded.</title>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Bebas+Neue&family=Black+Ops+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<title>Big Fat Smokys — Smoked Meats & BBQ Catering | Harrodsburg, KY</title>
+<meta name="description" content="Big Fat Smokys serves slow-smoked brisket, chicken, pork and grilled sausage by the pound. Open Friday & Saturday in Harrodsburg, KY. BBQ catering available for events, parties and corporate orders. Cash only until official launch. Call 859-705-8665."/>
+<meta name="keywords" content="BBQ catering Harrodsburg KY, smoked brisket Kentucky, BBQ by the pound, smoked meats Central Kentucky, catering Harrodsburg, Big Fat Smokys, gumbo Harrodsburg, BBQ catering Lexington KY, smoked chicken Kentucky, fry pies Kentucky"/>
+<meta property="og:title" content="Big Fat Smokys — Big Smoke. Big Flavor. Big Portions."/>
+<meta property="og:description" content="Slow-smoked meats by the pound. Gumbo. Homemade rolls. Fry pies. Open Friday & Saturday in Harrodsburg, KY. Catering available."/>
+<meta property="og:type" content="restaurant"/>
+<link rel="canonical" href="https://bigfatsmokysubs.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Black+Ops+One&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <style>
 :root{
-  --char:#0F0800;--char2:#1A0D00;--char3:#2A1800;
+  --char:#0F0800;--char2:#1A0D00;--char3:#241200;
   --ember:#CC2200;--ember2:#FF3A1A;--fire:#FF6B1A;
   --smoke:#8A7060;--cream:#F5DFA0;--bread:#D4A850;
-  --white:#fff;--off:#FFF8F0;--muted:#8A7060;
+  --gold:#FFD060;--white:#fff;--off:#FFF8F0;--muted:#7A6050;
   --nav-h:76px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -21,110 +27,47 @@ html{scroll-behavior:smooth;}
 body{font-family:'Inter',sans-serif;background:var(--char);color:var(--white);overflow-x:hidden;}
 img{display:block;max-width:100%;}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);
-  background:rgba(15,8,0,0.97);backdrop-filter:blur(16px);
-  border-bottom:2px solid rgba(204,34,0,0.25);
-  display:flex;align-items:center;justify-content:space-between;padding:0 40px;
-  transition:border-color .3s;
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);background:rgba(15,8,0,0.97);backdrop-filter:blur(16px);border-bottom:2px solid rgba(204,34,0,0.25);display:flex;align-items:center;justify-content:space-between;padding:0 40px;transition:border-color .3s;}
 nav.scrolled{border-bottom-color:var(--ember);}
-.logo{font-family:'Bangers',cursive;font-size:24px;letter-spacing:2px;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:4px;line-height:1;}
+.logo{font-family:'Bangers',cursive;font-size:22px;letter-spacing:2px;color:var(--white);text-decoration:none;line-height:1;}
 .logo .fat{color:var(--fire);}
-.logo .smoky{color:var(--cream);}
-.nav-links{display:flex;gap:24px;list-style:none;}
+.logo .smokys{color:var(--gold);}
+.nav-links{display:flex;gap:22px;list-style:none;}
 .nav-links a{color:rgba(255,255,255,0.72);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s;position:relative;}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--fire);transform:scaleX(0);transition:transform .25s;transform-origin:left;}
 .nav-links a:hover{color:var(--fire);}
 .nav-links a:hover::after{transform:scaleX(1);}
-.nav-order{font-family:'Bebas Neue',cursive;font-size:19px;letter-spacing:2px;color:var(--char);text-decoration:none;background:var(--ember);padding:10px 22px;border-radius:4px;transition:all .25s;white-space:nowrap;box-shadow:0 0 24px rgba(204,34,0,0.4);}
-.nav-order:hover{background:var(--ember2);transform:translateY(-1px);box-shadow:0 4px 28px rgba(255,58,26,0.5);}
-.nav-hours{font-size:11px;color:var(--fire);font-weight:700;letter-spacing:.5px;text-align:right;}
-.nav-hours span{display:block;color:rgba(255,255,255,0.4);font-weight:400;font-size:10px;}
+.nav-order{font-family:'Bebas Neue',cursive;font-size:18px;letter-spacing:2px;color:var(--char);text-decoration:none;background:var(--ember);padding:10px 20px;border-radius:4px;transition:all .25s;white-space:nowrap;box-shadow:0 0 20px rgba(204,34,0,0.4);}
+.nav-order:hover{background:var(--ember2);transform:translateY(-1px);}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
 .burger span{width:24px;height:2px;background:var(--white);display:block;}
 .mob{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(15,8,0,0.99);z-index:299;padding:28px 32px;flex-direction:column;gap:22px;border-bottom:2px solid var(--ember);}
 .mob.open{display:flex;}
 .mob a{color:var(--white);text-decoration:none;font-size:20px;font-weight:700;}
 
-/* ── HERO ── */
-.hero{
-  position:relative;width:100%;height:100vh;min-height:700px;
-  overflow:hidden;background:var(--char);
-  display:flex;align-items:center;
-}
+/* HERO */
+.hero{position:relative;width:100%;height:100vh;min-height:700px;overflow:hidden;background:var(--char);display:flex;align-items:center;}
 #canvas3d{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;}
-.hero-vignette{
-  position:absolute;inset:0;z-index:2;
-  background:linear-gradient(105deg,
-    rgba(15,8,0,0.98) 0%,
-    rgba(15,8,0,0.88) 38%,
-    rgba(26,13,0,0.35) 62%,
-    transparent 100%);
-}
-.hero-inner{
-  position:relative;z-index:3;
-  max-width:1180px;margin:0 auto;
-  padding:0 40px;padding-top:var(--nav-h);width:100%;
-}
-.hero-eyebrow{
-  display:flex;align-items:center;gap:10px;
-  font-size:11px;font-weight:700;letter-spacing:4px;
-  color:var(--fire);text-transform:uppercase;margin-bottom:18px;
-  opacity:0;transform:translateX(-30px);
-}
+.hero-vignette{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(15,8,0,0.98) 0%,rgba(15,8,0,0.88) 38%,rgba(26,13,0,0.35) 65%,transparent 100%);}
+.hero-inner{position:relative;z-index:3;max-width:1180px;margin:0 auto;padding:0 40px;padding-top:var(--nav-h);width:100%;}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:4px;color:var(--fire);text-transform:uppercase;margin-bottom:16px;opacity:0;transform:translateX(-30px);}
 .hero-eyebrow::before{content:'🔥';font-size:14px;}
-.hero-h1{
-  font-family:'Bangers',cursive;
-  line-height:.86;letter-spacing:3px;
-  color:var(--white);margin-bottom:16px;overflow:hidden;
-}
+.hero-h1{font-family:'Bangers',cursive;line-height:.86;letter-spacing:3px;color:var(--white);margin-bottom:14px;overflow:hidden;}
 .hero-h1 .line{display:block;overflow:hidden;}
 .hero-h1 .line span{display:block;transform:translateY(115%);}
-.h1-big{font-size:clamp(72px,10vw,138px);}
+.h1-big{font-size:clamp(64px,9vw,120px);}
 .h1-fat{color:var(--fire);text-shadow:0 0 60px rgba(255,107,26,0.5);}
-.h1-smoky{font-size:clamp(56px,8vw,108px);color:var(--cream);}
-.h1-subs{font-size:clamp(64px,9vw,124px);color:var(--ember);text-shadow:0 0 40px rgba(204,34,0,0.4);}
-.hero-tag{
-  font-family:'Bebas Neue',cursive;font-size:clamp(18px,2.5vw,28px);
-  letter-spacing:5px;color:var(--smoke);margin-bottom:24px;
-  opacity:0;transform:translateX(-20px);
-}
-.hero-tag em{color:var(--cream);font-style:normal;}
-.hero-desc{
-  font-size:16px;line-height:1.75;color:rgba(255,255,255,0.68);
-  margin-bottom:36px;max-width:460px;
-  opacity:0;transform:translateY(20px);
-}
-.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px;opacity:0;transform:translateY(20px);}
-.btn-ember{
-  background:var(--ember);color:var(--white);
-  padding:17px 36px;border-radius:4px;
-  font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:2px;
-  text-decoration:none;transition:all .25s;
-  box-shadow:0 0 32px rgba(204,34,0,0.45);border:2px solid var(--ember);
-}
-.btn-ember:hover{background:var(--ember2);border-color:var(--ember2);transform:translateY(-2px);box-shadow:0 6px 40px rgba(255,58,26,0.5);}
-.btn-ghost{
-  background:transparent;color:var(--white);
-  padding:17px 36px;border-radius:4px;
-  font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:2px;
-  text-decoration:none;border:2px solid rgba(255,255,255,0.25);transition:all .25s;
-}
-.btn-ghost:hover{border-color:var(--fire);color:var(--fire);transform:translateY(-2px);}
-.hours-badge{
-  display:flex;align-items:center;gap:14px;
-  background:rgba(255,107,26,0.1);border:1px solid rgba(255,107,26,0.25);
-  border-radius:8px;padding:12px 18px;max-width:360px;
-  opacity:0;transform:translateY(10px);
-}
-.hours-dot{width:10px;height:10px;border-radius:50%;background:var(--fire);box-shadow:0 0 8px var(--fire);animation:pulse 1.5s ease-in-out infinite;}
-@keyframes pulse{0%,100%{box-shadow:0 0 6px var(--fire);}50%{box-shadow:0 0 16px var(--fire),0 0 32px rgba(255,107,26,0.4);}}
-.hours-text strong{display:block;font-size:14px;font-weight:700;color:var(--fire);}
-.hours-text span{font-size:12px;color:rgba(255,255,255,0.5);}
-.scene-tag{position:absolute;bottom:40px;right:40px;z-index:4;font-family:'Bebas Neue',cursive;font-size:12px;letter-spacing:3px;color:rgba(255,255,255,0.2);text-align:right;}
-.scene-tag em{display:block;color:var(--fire);font-style:normal;font-size:10px;letter-spacing:2px;margin-top:2px;}
+.h1-smokys{font-size:clamp(52px,7.5vw,100px);color:var(--gold);}
+.hero-tag{font-family:'Bangers',cursive;font-size:clamp(22px,3vw,38px);letter-spacing:5px;color:var(--gold);margin-bottom:8px;opacity:0;transform:translateX(-20px);}
+.hero-sub{font-size:clamp(14px,1.8vw,17px);color:rgba(255,255,255,0.65);line-height:1.75;margin-bottom:10px;max-width:480px;opacity:0;transform:translateY(16px);}
+.hero-cash{display:inline-flex;align-items:center;gap:8px;background:rgba(255,208,96,0.12);border:1px solid rgba(255,208,96,0.35);border-radius:6px;padding:8px 16px;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.5px;margin-bottom:28px;opacity:0;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px;opacity:0;transform:translateY(16px);}
+.btn-ember{background:var(--ember);color:var(--white);padding:16px 32px;border-radius:4px;font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:2px;text-decoration:none;transition:all .25s;box-shadow:0 0 28px rgba(204,34,0,0.4);border:2px solid var(--ember);}
+.btn-ember:hover{background:var(--ember2);transform:translateY(-2px);}
+.btn-call{background:transparent;color:var(--gold);padding:16px 28px;border-radius:4px;font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:2px;text-decoration:none;border:2px solid var(--gold);transition:all .25s;display:flex;align-items:center;gap:8px;}
+.btn-call:hover{background:rgba(255,208,96,0.1);transform:translateY(-2px);}
+.hero-hours{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);opacity:0;}
 .scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s 2.6s forwards;}
 .scroll-ind p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.28);}
 .scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--ember),transparent);overflow:hidden;}
@@ -132,284 +75,144 @@ nav.scrolled{border-bottom-color:var(--ember);}
 @keyframes dropLine{0%{transform:translateY(-100%);}100%{transform:translateY(200%);}}
 @keyframes fadeUp{from{opacity:0;transform:translate(-50%,10px);}to{opacity:1;transform:translate(-50%,0);}}
 
-/* ── STATUS BAR ── */
-.status-bar{
-  background:var(--ember);padding:12px 32px;
-  display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:wrap;
-}
+/* STATUS BAR */
+.status-bar{background:var(--ember);padding:14px 32px;display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:wrap;}
 .sb-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--white);letter-spacing:.5px;}
-.sb-item span{font-size:16px;}
 .sb-divider{width:1px;height:16px;background:rgba(255,255,255,0.3);}
 
-/* ── SECTIONS ── */
-section{padding:96px 40px;}
-.container{max-width:1180px;margin:0 auto;}
+/* SECTIONS */
+section{padding:88px 40px;}
+.container{max-width:1100px;margin:0 auto;}
 .eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;color:var(--fire);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;opacity:0;transform:translateY(16px);}
 .eyebrow::before{content:'';width:24px;height:2px;background:var(--ember);flex-shrink:0;}
-.sec-h2{font-family:'Bangers',cursive;font-size:clamp(32px,4.5vw,60px);margin-bottom:16px;line-height:1.0;opacity:0;transform:translateY(20px);}
-.sec-h2.light{color:var(--white);}
-.sec-h2.dark{color:var(--char);}
-.sec-h2 .fire{color:var(--fire);}
-.sec-h2 .ember{color:var(--ember);}
-.sec-h2 .cream{color:var(--cream);}
-.sec-lead{font-size:17px;line-height:1.78;max-width:580px;opacity:0;transform:translateY(16px);}
-.sec-lead.light{color:rgba(255,255,255,0.6);}
-.sec-lead.dark{color:var(--smoke);}
+.sec-h2{font-family:'Bangers',cursive;font-size:clamp(36px,5vw,64px);margin-bottom:16px;line-height:.95;opacity:0;transform:translateY(20px);}
+.sec-lead{font-size:17px;line-height:1.78;max-width:620px;opacity:0;transform:translateY(16px);}
 
-/* ── MENU SECTION (Sheetz-style dark cards) ── */
+/* MENU SECTION */
 .menu-bg{background:var(--char2);}
-.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;}
-.menu-card{
-  background:var(--char3);
-  overflow:hidden;position:relative;
-  opacity:0;transform:translateY(30px);
-  cursor:pointer;
-  transition:transform .3s;
-}
-.menu-card:hover{transform:scale(1.02);z-index:2;}
-.mc-img{
-  width:100%;height:260px;
-  background:linear-gradient(135deg,#2A1500,#3A2000);
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;position:relative;
-}
-/* Smoke overlay on images */
-.mc-img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(15,8,0,0.95) 0%,rgba(15,8,0,0.3) 50%,transparent 100%);
-}
-.mc-emoji{font-size:72px;opacity:0.4;filter:saturate(1.5);}
-.mc-body{padding:20px 22px 24px;}
-.mc-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--fire);margin-bottom:6px;}
-.mc-name{font-family:'Bangers',cursive;font-size:26px;letter-spacing:1px;color:var(--white);margin-bottom:6px;line-height:1;}
-.mc-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:14px;}
-.mc-footer{display:flex;align-items:center;justify-content:space-between;}
-.mc-price{font-family:'Bebas Neue',cursive;font-size:26px;letter-spacing:1px;color:var(--cream);}
-.mc-cta{
-  font-family:'Bebas Neue',cursive;font-size:16px;letter-spacing:1.5px;
-  color:var(--white);background:var(--ember);
-  padding:7px 16px;border-radius:3px;text-decoration:none;
-  transition:background .2s;
-}
-.mc-cta:hover{background:var(--ember2);}
+.menu-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:52px;}
 
-/* ── SIGNATURE SUBS (large feature cards) ── */
-.sig-bg{background:var(--char);}
-.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:52px;}
-.sig-card{
-  position:relative;height:380px;overflow:hidden;
-  opacity:0;transform:translateY(40px);cursor:pointer;
-}
-.sig-card .bg{
-  position:absolute;inset:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:120px;transition:transform .5s;
-}
-.sig-card:hover .bg{transform:scale(1.08);}
-.s1 .bg{background:linear-gradient(135deg,#2A0800,#4A1500);}
-.s2 .bg{background:linear-gradient(135deg,#0A1A0A,#1A3A1A);}
-.s3 .bg{background:linear-gradient(135deg,#1A1A00,#3A3000);}
-.s4 .bg{background:linear-gradient(135deg,#1A0020,#300040);}
-.sig-card .overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(15,8,0,0.96) 0%,rgba(15,8,0,0.4) 50%,transparent 100%);
-}
-.sig-card .info{
-  position:absolute;bottom:0;left:0;right:0;padding:28px;
-  transform:translateY(6px);transition:transform .3s;
-}
-.sig-card:hover .info{transform:translateY(0);}
-.sig-card .tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--fire);margin-bottom:8px;}
-.sig-card h3{font-family:'Bangers',cursive;font-size:34px;letter-spacing:1.5px;color:var(--white);margin-bottom:6px;line-height:1.1;}
-.sig-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:14px;max-width:340px;}
-.sig-card .price{font-family:'Bebas Neue',cursive;font-size:22px;color:var(--cream);letter-spacing:1px;}
-.sig-card .order-btn{
-  display:inline-block;
-  font-family:'Bebas Neue',cursive;font-size:18px;letter-spacing:2px;
-  color:var(--char);background:var(--cream);
-  padding:9px 22px;border-radius:3px;text-decoration:none;
-  transition:background .2s;margin-left:12px;
-}
-.sig-card .order-btn:hover{background:var(--white);}
-.sig-card:first-child{grid-column:span 2;}
-.sig-card:first-child .bg{font-size:160px;}
+/* Menu category cards */
+.menu-cat{background:var(--char3);border-radius:12px;overflow:hidden;opacity:0;transform:translateY(30px);}
+.menu-cat-full{grid-column:span 2;}
+.cat-header{padding:20px 24px 16px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.cat-header h3{font-family:'Bangers',cursive;font-size:26px;letter-spacing:2px;color:var(--gold);}
+.cat-header p{font-size:12px;color:rgba(255,255,255,0.45);margin-top:4px;letter-spacing:.5px;}
+.menu-rows{padding:12px 0;}
+.menu-row{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid rgba(255,255,255,0.04);transition:background .2s;}
+.menu-row:last-child{border-bottom:none;}
+.menu-row:hover{background:rgba(255,255,255,0.03);}
+.menu-row .item-name{font-size:15px;font-weight:600;color:var(--white);}
+.menu-row .item-desc{font-size:12px;color:rgba(255,255,255,0.45);margin-top:2px;}
+.menu-row .item-price{font-family:'Bebas Neue',cursive;font-size:20px;color:var(--gold);letter-spacing:1px;white-space:nowrap;margin-left:12px;flex-shrink:0;}
+.menu-row .item-left{flex:1;}
 
-/* ── HOW IT WORKS (Sheetz flow) ── */
+/* Tag pills */
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;padding:12px 24px;}
+.tag{background:rgba(255,107,26,0.12);border:1px solid rgba(255,107,26,0.25);border-radius:20px;padding:5px 14px;font-size:13px;color:var(--fire);font-weight:600;}
+.tag.gold{background:rgba(255,208,96,0.1);border-color:rgba(255,208,96,0.25);color:var(--gold);}
+
+/* Spice selector */
+.spice-row{display:flex;gap:8px;padding:8px 24px 16px;}
+.spice{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;border:1px solid;cursor:default;}
+.spice.mild{background:rgba(76,175,80,0.1);border-color:rgba(76,175,80,0.3);color:#81c784;}
+.spice.medium{background:rgba(255,152,0,0.1);border-color:rgba(255,152,0,0.3);color:#ffb74d;}
+.spice.hot{background:rgba(244,67,54,0.12);border-color:rgba(244,67,54,0.3);color:#ef9a9a;}
+
+/* CATERING SECTION */
+.cater-bg{background:linear-gradient(135deg,#1A0800,#2A1000);}
+.cater-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.cater-visual{border-radius:14px;overflow:hidden;position:relative;opacity:0;transform:translateX(-40px);}
+.cater-visual-inner{background:linear-gradient(135deg,#2A1000,#3A1800);height:440px;display:flex;align-items:center;justify-content:center;font-size:80px;border-radius:14px;border:1px solid rgba(204,34,0,0.2);}
+.cater-content{opacity:0;transform:translateX(40px);}
+.cater-content p{font-size:16px;line-height:1.78;color:rgba(255,255,255,0.65);margin-bottom:16px;}
+.cater-pts{list-style:none;display:flex;flex-direction:column;gap:12px;margin:24px 0 32px;}
+.cater-pts li{display:flex;gap:12px;font-size:14px;color:rgba(255,255,255,0.8);align-items:flex-start;}
+.cater-pts li::before{content:'🔥';flex-shrink:0;}
+
+/* SIDES SECTION */
+.sides-bg{background:var(--char3);}
+.sides-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.side-card{background:var(--char2);border-radius:12px;padding:28px 24px;opacity:0;transform:translateY(24px);transition:transform .2s,box-shadow .2s;border:1px solid rgba(255,107,26,0.08);}
+.side-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,0.4);}
+.side-icon{font-size:36px;margin-bottom:14px;}
+.side-card h4{font-family:'Black Ops One',cursive;font-size:16px;color:var(--gold);margin-bottom:8px;}
+.side-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;}
+.side-price{font-family:'Bebas Neue',cursive;font-size:22px;color:var(--fire);margin-top:10px;letter-spacing:1px;}
+
+/* HOW IT WORKS */
 .how-bg{background:var(--off);color:var(--char);}
-.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:60px;position:relative;}
-.how-line{position:absolute;top:40px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--ember),var(--fire));z-index:0;}
-.how-step{text-align:center;padding:0 16px;position:relative;z-index:1;opacity:0;transform:translateY(24px);}
-.how-num{
-  width:80px;height:80px;border-radius:50%;
-  background:linear-gradient(135deg,var(--ember),var(--fire));
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 20px;
-  font-family:'Bangers',cursive;font-size:36px;color:var(--white);
-  letter-spacing:1px;box-shadow:0 0 24px rgba(204,34,0,0.4);
-}
-.how-step h4{font-family:'Black Ops One',cursive;font-size:16px;color:var(--char);margin-bottom:8px;}
-.how-step p{font-size:13px;color:var(--smoke);line-height:1.6;}
-.how-icon{font-size:24px;margin-bottom:8px;}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;position:relative;}
+.how-line{position:absolute;top:36px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--ember),var(--fire));z-index:0;}
+.how-step{text-align:center;padding:0 16px;position:relative;z-index:1;opacity:0;transform:translateY(20px);}
+.how-num{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,var(--ember),var(--fire));display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Bangers',cursive;font-size:36px;color:var(--white);box-shadow:0 0 20px rgba(204,34,0,0.35);}
+.how-step h4{font-family:'Black Ops One',cursive;font-size:15px;color:var(--char);margin-bottom:8px;}
+.how-step p{font-size:13px;color:var(--muted);line-height:1.6;}
 
-/* ── ONLINE ORDER CTA (Sheetz-style full width) ── */
-.order-cta{
-  background:var(--char2);
-  border-top:3px solid var(--ember);
-  padding:0;overflow:hidden;
-  display:grid;grid-template-columns:1fr 1fr;
-}
-.oc-left{
-  padding:80px 60px;
-  background:linear-gradient(135deg,rgba(204,34,0,0.15),transparent);
-  display:flex;flex-direction:column;justify-content:center;
-}
-.oc-right{
-  background:linear-gradient(135deg,#2A1000,#1A0800);
-  display:flex;align-items:center;justify-content:center;
-  font-size:120px;
-  min-height:400px;
-}
-.oc-left .eyebrow{opacity:1;transform:none;}
-.oc-left h2{
-  font-family:'Bangers',cursive;
-  font-size:clamp(40px,4.5vw,64px);
-  letter-spacing:2px;color:var(--white);
-  margin-bottom:16px;line-height:.95;
-}
-.oc-left h2 span{color:var(--fire);}
-.oc-left p{font-size:16px;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:32px;}
-.oc-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;}
-.oc-badge{
-  background:rgba(255,107,26,0.1);border:1px solid rgba(255,107,26,0.25);
-  border-radius:6px;padding:8px 16px;
-  font-size:12px;font-weight:700;color:var(--fire);letter-spacing:.5px;
-}
-.pos-note{font-size:12px;color:rgba(255,255,255,0.3);margin-top:16px;}
-.pos-note a{color:var(--fire);text-decoration:none;}
-
-/* ── LOCATION / HOURS (Sheetz-style info panel) ── */
-.loc-bg{background:var(--char3);}
-.loc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-top:52px;}
-.loc-card{
-  background:var(--char2);padding:36px 32px;
-  opacity:0;transform:translateY(30px);
-  transition:background .25s;
-}
-.loc-card:hover{background:rgba(204,34,0,0.08);}
-.loc-card .icon{font-size:36px;margin-bottom:16px;}
-.loc-card h3{font-family:'Bangers',cursive;font-size:26px;letter-spacing:1px;color:var(--cream);margin-bottom:12px;}
-.loc-card p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.8;}
-.loc-card .days{font-family:'Bebas Neue',cursive;font-size:22px;color:var(--fire);letter-spacing:2px;margin-top:8px;}
-.loc-card a{color:var(--fire);text-decoration:none;font-weight:700;}
-.loc-card a:hover{color:var(--ember2);}
-
-/* ── SMOKE SIGNAL (about) ── */
-.about-bg{
-  background:linear-gradient(160deg,var(--char) 0%,var(--char2) 40%,var(--char3) 100%);
-  position:relative;overflow:hidden;
-}
-.about-bg::before{
-  content:'';position:absolute;
-  width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(204,34,0,0.06) 0%,transparent 70%);
-  top:-200px;right:-200px;
-}
-.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;}
-.about-visual{
-  border-radius:12px;overflow:hidden;
-  background:linear-gradient(135deg,#2A1000,#1A0800);
-  height:480px;display:flex;align-items:center;justify-content:center;
-  font-size:100px;
-  opacity:0;transform:translateX(-40px);
-  box-shadow:0 0 80px rgba(204,34,0,0.2);
-  border:1px solid rgba(204,34,0,0.15);
-}
-.about-content{opacity:0;transform:translateX(40px);}
-.about-content p{font-size:16px;color:rgba(255,255,255,0.62);line-height:1.78;margin-bottom:20px;}
-.stat-row{display:flex;gap:32px;margin-top:32px;}
-.stat-box{text-align:center;}
-.stat-box .num{font-family:'Bangers',cursive;font-size:48px;color:var(--fire);letter-spacing:2px;line-height:1;text-shadow:0 0 24px rgba(255,107,26,0.4);}
-.stat-box .lbl{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);}
-
-/* ── REVIEWS ── */
+/* REVIEWS */
 .rev-bg{background:var(--char2);}
-.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px;}
-.rc{
-  background:var(--char3);padding:32px;
-  opacity:0;transform:translateY(30px);
-  transition:transform .25s;
-  position:relative;
-}
-.rc:hover{transform:translateY(-3px);}
-.rc::before{content:'"';font-family:'Bangers',cursive;font-size:80px;color:var(--ember);opacity:.15;position:absolute;top:8px;left:18px;line-height:1;}
-.rc-stars{color:var(--fire);font-size:16px;margin-bottom:14px;}
-.rc p{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.75;font-style:italic;margin-bottom:20px;}
-.rc-author{display:flex;align-items:center;gap:12px;}
-.rc-av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--ember),var(--fire));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:17px;}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.rc{background:var(--char3);padding:28px;border-radius:12px;opacity:0;transform:translateY(24px);position:relative;}
+.rc::before{content:'"';font-family:'Bangers',cursive;font-size:80px;color:var(--ember);opacity:.15;position:absolute;top:6px;left:16px;line-height:1;}
+.rc-stars{color:var(--fire);font-size:15px;margin-bottom:12px;}
+.rc p{font-size:14px;color:rgba(255,255,255,0.58);line-height:1.75;font-style:italic;margin-bottom:18px;}
+.rc-author{display:flex;align-items:center;gap:10px;}
+.rc-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--ember),var(--fire));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:16px;}
 .rc-author strong{display:block;font-size:13px;color:var(--cream);}
 .rc-author span{font-size:12px;color:rgba(255,255,255,0.4);}
 
-/* ── FINAL CTA ── */
-.final-cta{
-  background:var(--ember);
-  padding:80px 40px;text-align:center;
-  position:relative;overflow:hidden;
-}
-.final-cta::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at center,rgba(255,107,26,0.3) 0%,transparent 70%);
-}
-.final-cta h2{font-family:'Bangers',cursive;font-size:clamp(44px,6vw,84px);color:var(--white);letter-spacing:3px;margin-bottom:12px;position:relative;opacity:0;transform:translateY(20px);}
-.final-cta .sub{font-size:18px;color:rgba(255,255,255,0.75);margin-bottom:36px;position:relative;opacity:0;}
-.final-cta .phone{font-family:'Bebas Neue',cursive;font-size:clamp(44px,6vw,80px);color:var(--cream);letter-spacing:4px;text-decoration:none;display:block;margin-bottom:28px;position:relative;transition:color .2s;opacity:0;}
-.final-cta .phone:hover{color:var(--white);}
+/* CTA */
+.cta-band{background:var(--ember);padding:80px 40px;text-align:center;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(255,107,26,0.3) 0%,transparent 70%);}
+.cta-h{font-family:'Bangers',cursive;font-size:clamp(44px,6vw,84px);color:var(--white);letter-spacing:3px;margin-bottom:10px;position:relative;opacity:0;transform:translateY(20px);}
+.cta-sub{font-size:17px;color:rgba(255,255,255,0.78);margin-bottom:36px;position:relative;opacity:0;}
+.cta-phone{font-family:'Bebas Neue',cursive;font-size:clamp(44px,6vw,80px);color:var(--cream);letter-spacing:4px;text-decoration:none;display:block;margin-bottom:28px;transition:color .2s;position:relative;opacity:0;}
+.cta-phone:hover{color:var(--white);}
 .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;opacity:0;}
-.btn-cream{background:var(--cream);color:var(--char);padding:17px 36px;border-radius:4px;font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:2px;text-decoration:none;transition:all .25s;font-weight:700;}
+.btn-cream{background:var(--cream);color:var(--char);padding:16px 34px;border-radius:4px;font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:2px;text-decoration:none;transition:all .25s;font-weight:700;}
 .btn-cream:hover{background:var(--white);transform:translateY(-2px);}
-.btn-ghost-dark{background:transparent;color:var(--white);padding:17px 36px;border-radius:4px;font-family:'Bebas Neue',cursive;font-size:24px;letter-spacing:2px;text-decoration:none;border:2px solid rgba(255,255,255,0.5);transition:all .25s;}
-.btn-ghost-dark:hover{border-color:var(--white);transform:translateY(-2px);}
+.btn-ghost-dk{background:transparent;color:var(--white);padding:16px 34px;border-radius:4px;font-family:'Bebas Neue',cursive;font-size:22px;letter-spacing:2px;text-decoration:none;border:2px solid rgba(255,255,255,0.5);transition:all .25s;}
+.btn-ghost-dk:hover{border-color:var(--white);transform:translateY(-2px);}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{background:var(--char);padding:60px 40px 32px;border-top:2px solid rgba(204,34,0,0.2);}
-.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:52px;max-width:1180px;margin:0 auto 48px;}
-.ft-logo{font-family:'Bangers',cursive;font-size:28px;letter-spacing:2px;color:var(--white);margin-bottom:14px;}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;max-width:1100px;margin:0 auto 44px;}
+.ft-logo{font-family:'Bangers',cursive;font-size:26px;letter-spacing:2px;color:var(--white);margin-bottom:14px;}
 .ft-logo .fat{color:var(--fire);}
+.ft-logo .smokys{color:var(--gold);}
 footer p{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.85;}
 footer h4{font-family:'Black Ops One',cursive;font-size:12px;color:var(--fire);margin-bottom:14px;letter-spacing:1px;}
 footer ul{list-style:none;}
 footer li{margin-bottom:9px;}
 footer li a{color:rgba(255,255,255,0.35);text-decoration:none;font-size:13px;transition:color .2s;}
 footer li a:hover{color:var(--fire);}
-.ft-ph{font-family:'Bebas Neue',cursive;font-size:28px;color:var(--cream);letter-spacing:2px;text-decoration:none;display:block;margin-bottom:6px;}
-.ft-bot{border-top:1px solid rgba(255,255,255,0.06);padding-top:26px;max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.ft-ph{font-family:'Bebas Neue',cursive;font-size:26px;color:var(--gold);letter-spacing:2px;text-decoration:none;display:block;margin-bottom:6px;}
+.ft-bot{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .ft-bot p{font-size:12px;color:rgba(255,255,255,0.22);}
 .sq-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,107,26,0.15);border-radius:6px;padding:8px 14px;}
 .sq-badge span{font-size:11px;color:rgba(255,255,255,0.3);line-height:1.4;}
 
-/* ── MOBILE ── */
+/* MOBILE */
 @media(max-width:960px){
   nav{padding:0 24px;}
-  .nav-links,.nav-order,.nav-hours{display:none;}
+  .nav-links,.nav-order{display:none;}
   .burger{display:flex;}
   .hero-inner{padding:0 24px;padding-top:var(--nav-h);}
-  .menu-grid{grid-template-columns:1fr;}
-  .sig-grid{grid-template-columns:1fr;}
-  .sig-card:first-child{grid-column:span 1;}
-  .how-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  .menu-wrapper{grid-template-columns:1fr;}
+  .menu-cat-full{grid-column:span 1;}
+  .cater-grid{grid-template-columns:1fr;gap:36px;}
+  .cater-visual{transform:none;}
+  .sides-grid{grid-template-columns:1fr 1fr;}
+  .how-grid{grid-template-columns:1fr 1fr;gap:28px;}
   .how-line{display:none;}
-  .order-cta{grid-template-columns:1fr;}
-  .oc-right{display:none;}
-  .loc-grid{grid-template-columns:1fr;}
-  .about-inner{grid-template-columns:1fr;gap:40px;}
-  .about-visual{height:280px;}
   .rev-grid{grid-template-columns:1fr;}
-  .ft-grid{grid-template-columns:1fr;gap:32px;}
+  .ft-grid{grid-template-columns:1fr;gap:28px;}
   section{padding:64px 24px;}
-  .status-bar{gap:20px;}
+  .status-bar{gap:18px;}
 }
 @media(max-width:600px){
   .hero-btns{flex-direction:column;}
-  .stat-row{gap:20px;}
+  .sides-grid{grid-template-columns:1fr;}
   .how-grid{grid-template-columns:1fr;}
   .cta-btns{flex-direction:column;align-items:center;}
 }
@@ -422,298 +225,250 @@ footer li a:hover{color:var(--fire);}
 <body>
 
 <nav id="nav">
-  <a href="#" class="logo">BIG <span class="fat">FAT</span> <span class="smoky">SMOKY</span> SUBS</a>
+  <a href="#" class="logo">BIG <span class="fat">FAT</span> <span class="smokys">SMOKYS</span></a>
   <ul class="nav-links">
     <li><a href="#menu">Menu</a></li>
-    <li><a href="#subs">Signature Subs</a></li>
-    <li><a href="#order">Order Online</a></li>
-    <li><a href="#location">Location</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#catering">Catering</a></li>
+    <li><a href="#sides">Sides</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="nav-hours">Thu–Sat Only<span>Harrodsburg, KY</span></div>
-  <a href="#order" class="nav-order">Order Now</a>
+  <a href="https://bigfatsmokysubs.com" target="_blank" class="nav-order">Order Online</a>
   <div class="burger" onclick="document.getElementById('mob').classList.toggle('open')">
     <span></span><span></span><span></span>
   </div>
 </nav>
 <div class="mob" id="mob">
   <a href="#menu" onclick="this.closest('.mob').classList.remove('open')">Menu</a>
-  <a href="#subs" onclick="this.closest('.mob').classList.remove('open')">Signature Subs</a>
-  <a href="#order" onclick="this.closest('.mob').classList.remove('open')">Order Online</a>
-  <a href="#location" onclick="this.closest('.mob').classList.remove('open')">Location</a>
-  <a href="#about" onclick="this.closest('.mob').classList.remove('open')">About</a>
+  <a href="#catering" onclick="this.closest('.mob').classList.remove('open')">Catering</a>
+  <a href="#sides" onclick="this.closest('.mob').classList.remove('open')">Sides</a>
+  <a href="#how" onclick="this.closest('.mob').classList.remove('open')">How It Works</a>
+  <a href="tel:8597058665">📞 859-705-8665</a>
 </div>
 
-<!-- ═══ HERO ═══ -->
+<!-- HERO -->
 <div class="hero" id="hero">
   <canvas id="canvas3d"></canvas>
   <div class="hero-vignette"></div>
   <div class="hero-inner">
-    <p class="hero-eyebrow" id="eyebrow">Harrodsburg, Kentucky</p>
+    <p class="hero-eyebrow" id="eyebrow">Harrodsburg, Kentucky · Fri & Sat Only</p>
     <h1 class="hero-h1">
       <span class="line h1-big"><span>BIG</span></span>
       <span class="line h1-big h1-fat"><span>FAT</span></span>
-      <span class="line h1-smoky"><span>SMOKY</span></span>
-      <span class="line h1-subs"><span>SUBS</span></span>
+      <span class="line h1-smokys"><span>SMOKYS</span></span>
     </h1>
-    <p class="hero-tag" id="hero-tag">HOT. <em>SMOKY.</em> LOADED.</p>
-    <p class="hero-desc" id="hero-desc">Piled high with smoked meats, bold sauces, and all the fixings you can handle. Made fast. Available Thursdays, Fridays &amp; Saturdays only.</p>
+    <p class="hero-tag" id="hero-tag">BIG EATERS WANTED</p>
+    <p class="hero-sub" id="hero-sub">Big smoke. Big flavor. Big portions. Fresh-packed smoked meats and homemade favorites, ready to take home.</p>
+    <div class="hero-cash" id="hero-cash">💵 Cash Only Until Our Official Launch</div>
     <div class="hero-btns" id="hero-btns">
-      <a href="#order" class="btn-ember">Order Online Now</a>
-      <a href="#menu" class="btn-ghost">See the Menu</a>
+      <a href="https://bigfatsmokysubs.com" target="_blank" class="btn-ember">Order Online Now</a>
+      <a href="tel:8597058665" class="btn-call">📞 Call Ahead for Bigger Orders</a>
     </div>
-    <div class="hours-badge" id="hours-badge">
-      <div class="hours-dot"></div>
-      <div class="hours-text">
-        <strong>Thu · Fri · Sat Only</strong>
-        <span>Harrodsburg, KY · Limited availability · Order early</span>
-      </div>
-    </div>
+    <p class="hero-hours" id="hero-hours">Open Friday &amp; Saturday Only · Harrodsburg, KY · 859-705-8665</p>
   </div>
-  <div class="scene-tag">3D Sub Build<em>Watch it stack up</em></div>
   <div class="scroll-ind"><p>Scroll</p><div class="scroll-line"></div></div>
 </div>
 
 <!-- STATUS BAR -->
 <div class="status-bar">
-  <div class="sb-item"><span>🔥</span>Hot &amp; Fresh Made to Order</div>
+  <div class="sb-item"><span>🔥</span>Slow-Smoked In-House</div>
   <div class="sb-divider"></div>
-  <div class="sb-item"><span>🥩</span>Smoked Meats Daily</div>
+  <div class="sb-item"><span>📅</span>Fri &amp; Sat Only</div>
   <div class="sb-divider"></div>
-  <div class="sb-item"><span>📅</span>Thu · Fri · Sat Only</div>
+  <div class="sb-item"><span>💵</span>Cash Only Until Official Launch</div>
+  <div class="sb-divider"></div>
+  <div class="sb-item"><span>🍽️</span>Catering Available</div>
   <div class="sb-divider"></div>
   <div class="sb-item"><span>📍</span>Harrodsburg, KY</div>
-  <div class="sb-divider"></div>
-  <div class="sb-item"><span>💳</span>Square — Order Online</div>
 </div>
 
 <!-- MENU -->
 <section class="menu-bg" id="menu">
   <div class="container">
-    <p class="eyebrow gsap-fade">What We're Slinging</p>
-    <h2 class="sec-h2 light gsap-fade">The <span class="fire">Menu</span></h2>
-    <p class="sec-lead light gsap-fade">Every sub loaded to the limit. Smoked in-house, built to order, served fast.</p>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="mc-img"><div class="mc-emoji">🥩</div></div>
-        <div class="mc-body">
-          <div class="mc-tag">🔥 Signature</div>
-          <div class="mc-name">The Big Fatty</div>
-          <div class="mc-desc">Double smoked brisket, caramelized onions, smoked gouda, house smoke sauce on a toasted hoagie roll.</div>
-          <div class="mc-footer"><div class="mc-price">$14</div><a href="#order" class="mc-cta">Order →</a></div>
+    <p class="eyebrow gsap-fade">What We're Serving</p>
+    <h2 class="sec-h2 gsap-fade" style="color:var(--gold);">The Menu</h2>
+    <p class="sec-lead gsap-fade" style="color:rgba(255,255,255,0.58);">Everything smoked low and slow in-house. Sold by the pound so you take home exactly what you need. Call ahead for larger orders.</p>
+
+    <div class="menu-wrapper">
+
+      <!-- SMOKED MEATS -->
+      <div class="menu-cat">
+        <div class="cat-header">
+          <h3>🥩 Smoked Meats</h3>
+          <p>Slow-smoked in-house · Sold by the pound</p>
+        </div>
+        <div class="menu-rows">
+          <div class="menu-row"><div class="item-left"><div class="item-name">Smoked Brisket</div><div class="item-desc">Tender, juicy, our most popular cut</div></div><div class="item-price">$14/lb</div></div>
+          <div class="menu-row"><div class="item-left"><div class="item-name">Smoky Chicken</div><div class="item-desc">Fall-off-the-bone smoked chicken</div></div><div class="item-price">$11/lb</div></div>
+          <div class="menu-row"><div class="item-left"><div class="item-name">Smoky Pork</div><div class="item-desc">Slow-smoked pulled pork</div></div><div class="item-price">$10/lb</div></div>
+          <div class="menu-row"><div class="item-left"><div class="item-name">Grilled Sausage</div><div class="item-desc">House-seasoned grilled sausage</div></div><div class="item-price">$10/lb</div></div>
         </div>
       </div>
-      <div class="menu-card">
-        <div class="mc-img"><div class="mc-emoji">🐷</div></div>
-        <div class="mc-body">
-          <div class="mc-tag">Fan Favorite</div>
-          <div class="mc-name">Pulled Pork Bomb</div>
-          <div class="mc-desc">Low and slow pulled pork, coleslaw, pickled jalapeños, BBQ drizzle. Messy in the best way.</div>
-          <div class="mc-footer"><div class="mc-price">$13</div><a href="#order" class="mc-cta">Order →</a></div>
+
+      <!-- GUMBO -->
+      <div class="menu-cat">
+        <div class="cat-header">
+          <h3>🍲 Smoky Gumbo</h3>
+          <p>32 oz · Choose your heat</p>
+        </div>
+        <div class="menu-rows">
+          <div class="menu-row"><div class="item-left"><div class="item-name">32 oz Gumbo</div><div class="item-desc">Rich, smoky, packed full</div></div><div class="item-price">$12</div></div>
+        </div>
+        <div class="spice-row">
+          <div class="spice mild">🟢 Mild</div>
+          <div class="spice medium">🟡 Medium</div>
+          <div class="spice hot">🔴 Spicy</div>
         </div>
       </div>
-      <div class="menu-card">
-        <div class="mc-img"><div class="mc-emoji">🍗</div></div>
-        <div class="mc-body">
-          <div class="mc-tag">Hot Pick</div>
-          <div class="mc-name">Smoky Bird</div>
-          <div class="mc-desc">Smoked chicken, pepper jack, roasted peppers, chipotle aioli. The one that surprises first-timers.</div>
-          <div class="mc-footer"><div class="mc-price">$12</div><a href="#order" class="mc-cta">Order →</a></div>
+
+      <!-- ROLLS & SAUCES -->
+      <div class="menu-cat">
+        <div class="cat-header">
+          <h3>🍞 Homemade Rolls</h3>
+          <p>Baked fresh · Hearty &amp; thick</p>
+        </div>
+        <div class="menu-rows">
+          <div class="menu-row"><div class="item-left"><div class="item-name">2 Hearty Rolls</div><div class="item-desc">Perfect for loading up with meat</div></div><div class="item-price">$3</div></div>
         </div>
       </div>
-      <div class="menu-card">
-        <div class="mc-img"><div class="mc-emoji">🥓</div></div>
-        <div class="mc-body">
-          <div class="mc-tag">Classic</div>
-          <div class="mc-name">Smoke &amp; Stack</div>
-          <div class="mc-desc">Smoked turkey, thick-cut bacon, swiss, lettuce, tomato, honey mustard. Clean. Classic. Loaded.</div>
-          <div class="mc-footer"><div class="mc-price">$12</div><a href="#order" class="mc-cta">Order →</a></div>
+
+      <!-- SAUCES -->
+      <div class="menu-cat">
+        <div class="cat-header">
+          <h3>🧃 Sauces</h3>
+          <p>House-made to order</p>
+        </div>
+        <div class="tag-row">
+          <div class="tag">Sweet</div>
+          <div class="tag">Sweet &amp; Spicy</div>
+          <div class="tag">Garlic Parmesan</div>
+          <div class="tag">Beer Cheese</div>
+          <div class="tag">Carolina Gold</div>
+          <div class="tag">Pimento Cheese</div>
         </div>
       </div>
-      <div class="menu-card">
-        <div class="mc-img"><div class="mc-emoji">🌶️</div></div>
-        <div class="mc-body">
-          <div class="mc-tag">🌶️ Spicy</div>
-          <div class="mc-name">The Inferno</div>
-          <div class="mc-desc">Smoked chorizo, ghost pepper cheese, habanero sauce, pickled onions. For the brave only.</div>
-          <div class="mc-footer"><div class="mc-price">$13</div><a href="#order" class="mc-cta">Order →</a></div>
+
+      <!-- FRY PIES -->
+      <div class="menu-cat">
+        <div class="cat-header">
+          <h3>🥧 Fry Pies</h3>
+          <p>Homemade · Fried fresh · Dessert done right</p>
+        </div>
+        <div class="menu-rows">
+          <div class="menu-row"><div class="item-left"><div class="item-name">Single Fry Pie</div><div class="item-desc">Lemon · Peach · Apple · Cherry</div></div><div class="item-price">$4</div></div>
+          <div class="menu-row"><div class="item-left"><div class="item-name">Any 2 Fry Pies</div><div class="item-desc">Mix &amp; match flavors</div></div><div class="item-price">$7</div></div>
         </div>
       </div>
-      <div class="menu-card">
-        <div class="mc-img"><div class="mc-emoji">🧀</div></div>
-        <div class="mc-body">
-          <div class="mc-tag">Kentucky Special</div>
-          <div class="mc-name">KY Smokehouse</div>
-          <div class="mc-desc">Smoked ham, smoked bologna, pimento cheese, banana peppers. Pure Central Kentucky on a roll.</div>
-          <div class="mc-footer"><div class="mc-price">$11</div><a href="#order" class="mc-cta">Order →</a></div>
+
+      <!-- DRINKS & ADD-ONS -->
+      <div class="menu-cat">
+        <div class="cat-header">
+          <h3>🥤 Drinks &amp; Add-Ons</h3>
         </div>
+        <div class="menu-rows">
+          <div class="menu-row"><div class="item-left"><div class="item-name">Bottled Pop</div></div><div class="item-price">$2</div></div>
+          <div class="menu-row"><div class="item-left"><div class="item-name">Bottled Water</div></div><div class="item-price">$1</div></div>
+          <div class="menu-row"><div class="item-left"><div class="item-name">Slaw</div></div><div class="item-price">$2</div></div>
+          <div class="menu-row"><div class="item-left"><div class="item-name">Bacon Add-On</div></div><div class="item-price">$2</div></div>
+          <div class="menu-row"><div class="item-left"><div class="item-name">Sweet Smoky Peppers</div></div><div class="item-price">$2</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call to order -->
+    <div style="margin-top:40px;text-align:center;padding:32px;background:rgba(204,34,0,0.08);border:1px solid rgba(204,34,0,0.2);border-radius:12px;">
+      <p style="font-family:'Bangers',cursive;font-size:22px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;">CALL AHEAD FOR BIGGER ORDERS</p>
+      <a href="tel:8597058665" style="font-family:'Bebas Neue',cursive;font-size:42px;color:var(--fire);letter-spacing:3px;text-decoration:none;display:block;margin-bottom:16px;">859-705-8665</a>
+      <p style="font-size:13px;color:rgba(255,255,255,0.45);">We love feeding a crowd — call ahead so we can have your order hot and ready.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIDES -->
+<section class="sides-bg" id="sides">
+  <div class="container">
+    <p class="eyebrow gsap-fade">Made From Scratch</p>
+    <h2 class="sec-h2 gsap-fade" style="color:var(--white);">The Sides <span style="color:var(--fire);">Hit Different</span></h2>
+    <p class="sec-lead gsap-fade" style="color:rgba(255,255,255,0.55);">Every side is made in-house, not out of a can. The kind of sides that turn a meal into a full spread. Load up your plate.</p>
+    <div class="sides-grid">
+      <div class="side-card">
+        <div class="side-icon">🥔</div>
+        <h4>Roasted Fingerling Potatoes</h4>
+        <p>Crispy-edged, tender inside. Roasted with herbs and seasoning until golden. The kind of potatoes people ask for seconds on.</p>
+        <div class="side-price">$6</div>
+      </div>
+      <div class="side-card">
+        <div class="side-icon">🥓</div>
+        <h4>Smoky Bacon</h4>
+        <p>Thick-cut, smoky, and cooked just right. A side, a topping, or an excuse — we don't judge.</p>
+        <div class="side-price">$6</div>
+      </div>
+      <div class="side-card">
+        <div class="side-icon">🫑</div>
+        <h4>Sweet Roasted Peppers</h4>
+        <p>Fire-roasted peppers with a natural sweetness that pairs perfectly with smoked meats. Colorful, flavorful, and seriously underrated.</p>
+        <div class="side-price">$6</div>
+      </div>
+      <div class="side-card">
+        <div class="side-icon">🍚</div>
+        <h4>Saucy Rice</h4>
+        <p>Rich, seasoned rice cooked with sauce until it soaks up every bit of flavor. The perfect base for piling smoked meat on top.</p>
+        <div class="side-price">$4</div>
+      </div>
+      <div class="side-card">
+        <div class="side-icon">🥗</div>
+        <h4>Slaw</h4>
+        <p>House-made coleslaw with the right balance of creamy and tangy. Cuts through the richness of smoked meat perfectly.</p>
+        <div class="side-price">$2</div>
+      </div>
+      <div class="side-card">
+        <div class="side-icon">🌶️</div>
+        <h4>Sweet Smoky Peppers</h4>
+        <p>A sweet heat add-on that works on everything. On your meat, in your gumbo, or straight up — these disappear fast.</p>
+        <div class="side-price">$2</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SIGNATURE SUBS -->
-<section class="sig-bg" id="subs">
+<!-- CATERING -->
+<section class="cater-bg" id="catering">
   <div class="container">
-    <p class="eyebrow gsap-fade">Go Big or Go Home</p>
-    <h2 class="sec-h2 light gsap-fade"><span class="ember">Signature</span> Builds</h2>
-    <p class="sec-lead light gsap-fade">These aren't on every menu. Order these and you'll understand why people come back every single week.</p>
-    <div class="sig-grid">
-      <div class="sig-card s1">
-        <div class="bg">🔥</div>
-        <div class="overlay"></div>
-        <div class="info">
-          <div class="tag">🏆 Most Popular</div>
-          <h3>The Whole Damn Thing</h3>
-          <p>Every smoked meat on the menu. Brisket, pork, chicken, turkey, bacon. All the sauces. 14 inches. We dare you.</p>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <div class="price">$22</div>
-            <a href="#order" class="order-btn">Build Yours →</a>
-          </div>
-        </div>
+    <div class="cater-grid">
+      <div class="cater-visual">
+        <div class="cater-visual-inner">🍖</div>
       </div>
-      <div class="sig-card s2">
-        <div class="bg">🌿</div>
-        <div class="overlay"></div>
-        <div class="info">
-          <div class="tag">Garden Option</div>
-          <h3>The Green Smoke</h3>
-          <p>Smoked portobello, roasted veg, smoked gouda, herb aioli. Because even vegetarians deserve something this good.</p>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <div class="price">$11</div>
-            <a href="#order" class="order-btn">Order →</a>
-          </div>
-        </div>
-      </div>
-      <div class="sig-card s3">
-        <div class="bg">🥇</div>
-        <div class="overlay"></div>
-        <div class="info">
-          <div class="tag">Weekly Special</div>
-          <h3>Pitmaster's Pick</h3>
-          <p>Changes every week. Whatever's coming off the smoker at peak perfection. Follow our Facebook for the weekly drop.</p>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <div class="price">Market</div>
-            <a href="https://bigfatsmokysubs.com" target="_blank" class="order-btn">See This Week →</a>
-          </div>
-        </div>
-      </div>
-      <div class="sig-card s4">
-        <div class="bg">🧑‍🍳</div>
-        <div class="overlay"></div>
-        <div class="info">
-          <div class="tag">Build It</div>
-          <h3>Make Your Own</h3>
-          <p>Pick your meat, bread, cheese, sauce, and toppings. Every combination from our full menu, your way.</p>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <div class="price">From $10</div>
-            <a href="#order" class="order-btn">Customize →</a>
-          </div>
-        </div>
+      <div class="cater-content">
+        <p class="eyebrow gsap-fade">We Come To You</p>
+        <h2 class="sec-h2 gsap-fade" style="color:var(--white);">Catering That <span style="color:var(--gold);">Shows Up</span></h2>
+        <p>Big Fat Smokys started as a catering operation — and we're still the go-to for Central Kentucky events that need real BBQ. We're open to the public Fridays and Saturdays, but catering is what we do best.</p>
+        <p>Whether you're feeding 20 or 200, we show up with slow-smoked meats, homemade sides, sauces, rolls, and fry pies that make people forget they're at a work event.</p>
+        <ul class="cater-pts">
+          <li>Weddings, receptions &amp; rehearsal dinners</li>
+          <li>Corporate lunches &amp; company events</li>
+          <li>Birthday parties &amp; family reunions</li>
+          <li>Church events &amp; community gatherings</li>
+          <li>Graduation parties &amp; cookouts</li>
+          <li>Tailgates &amp; sports events</li>
+        </ul>
+        <a href="tel:8597058665" class="btn-ember" style="display:inline-block;">Call to Book Catering — 859-705-8665</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how-bg">
+<section class="how-bg" id="how">
   <div class="container">
-    <p class="eyebrow gsap-fade" style="color:var(--ember);">Simple as That</p>
-    <h2 class="sec-h2 dark gsap-fade">Order. <span style="color:var(--ember);">Pick Up.</span> Devour.</h2>
+    <p class="eyebrow gsap-fade" style="color:var(--ember);">Simple As That</p>
+    <h2 class="sec-h2 gsap-fade" style="color:var(--char);">Order. <span style="color:var(--ember);">Pick Up.</span> Eat.</h2>
     <div class="how-grid">
       <div class="how-line"></div>
-      <div class="how-step gsap-how">
-        <div class="how-num">1</div>
-        <div class="how-icon">📱</div>
-        <h4>Order Online</h4>
-        <p>Place your order ahead of time through our Square online portal. Skip the wait, get it hot.</p>
-      </div>
-      <div class="how-step gsap-how">
-        <div class="how-num">2</div>
-        <div class="how-icon">🔥</div>
-        <h4>We Build It</h4>
-        <p>Your sub gets made fresh, loaded to spec, and wrapped hot. No shortcuts, no compromises.</p>
-      </div>
-      <div class="how-step gsap-how">
-        <div class="how-num">3</div>
-        <div class="how-icon">📍</div>
-        <h4>Come Get It</h4>
-        <p>Pick up at our Harrodsburg location. Thursday, Friday, or Saturday — you choose the day.</p>
-      </div>
-      <div class="how-step gsap-how">
-        <div class="how-num">4</div>
-        <div class="how-icon">😤</div>
-        <h4>Eat &amp; Repeat</h4>
-        <p>You'll come back next week. They all do. Follow us on Facebook for weekly specials and updates.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ONLINE ORDER CTA (Sheetz-feel) -->
-<div class="order-cta" id="order">
-  <div class="oc-left">
-    <p class="eyebrow" style="color:var(--fire);">Powered by Square</p>
-    <h2>Order Online.<br><span>Pick Up Fresh.</span></h2>
-    <p>Our online ordering is built on Square — the same system used by thousands of restaurants nationwide. Secure, fast, and easy. Place your order and we'll have it hot and ready.</p>
-    <div class="oc-badges">
-      <div class="oc-badge">🔒 Secure Checkout</div>
-      <div class="oc-badge">📱 Mobile Friendly</div>
-      <div class="oc-badge">⚡ Fast &amp; Easy</div>
-      <div class="oc-badge">🕐 Scheduled Pickup</div>
-    </div>
-    <a href="https://bigfatsmokysubs.com" target="_blank" class="btn-ember" style="display:inline-block;">Place Your Order →</a>
-    <p class="pos-note">Powered by <a href="https://squareup.com" target="_blank">Square POS</a> · Secure payments · No account required</p>
-  </div>
-  <div class="oc-right">🥪</div>
-</div>
-
-<!-- LOCATION & HOURS -->
-<section class="loc-bg" id="location">
-  <div class="container">
-    <p class="eyebrow gsap-fade">Find Us</p>
-    <h2 class="sec-h2 light gsap-fade">Location &amp; <span class="fire">Hours</span></h2>
-    <p class="sec-lead light gsap-fade">We're not open every day — and that's the point. Three days a week, one mission: the best sub you've ever had.</p>
-    <div class="loc-grid">
-      <div class="loc-card">
-        <div class="icon">📍</div>
-        <h3>Where We Are</h3>
-        <p>Harrodsburg, Kentucky<br>Mercer County<br><br>
-        <a href="https://bigfatsmokysubs.com" target="_blank">Check full address →</a></p>
-      </div>
-      <div class="loc-card">
-        <div class="icon">🕐</div>
-        <h3>When We're Open</h3>
-        <div class="days">THU · FRI · SAT</div>
-        <p style="margin-top:10px;">Three days a week. Limited quantities. Order online to guarantee yours — we do sell out.</p>
-      </div>
-      <div class="loc-card">
-        <div class="icon">📱</div>
-        <h3>Stay Connected</h3>
-        <p>Follow on Facebook for weekly specials, the Pitmaster's Pick, and when we're running low.<br><br>
-        <a href="https://bigfatsmokysubs.com" target="_blank">Visit website →</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about-bg" id="about">
-  <div class="container">
-    <div class="about-inner">
-      <div class="about-visual">🔥</div>
-      <div class="about-content">
-        <p class="eyebrow gsap-fade">The Story</p>
-        <h2 class="sec-h2 light gsap-fade">Smoke Is Our <span class="fire">Secret</span></h2>
-        <p class="sec-lead light gsap-fade">We didn't set out to build a restaurant. We set out to make the best sub anyone in Central Kentucky had ever tasted.</p>
-        <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.78;margin-top:16px;">Every meat is smoked in-house. Every sauce is made from scratch. Every sub is built to order and handed to you hot. That's it. That's the whole thing.</p>
-        <p style="font-size:16px;color:rgba(255,255,255,0.55);line-height:1.78;margin-top:12px;">We only open three days a week because that's how long it takes to do it right. Thursdays, Fridays, and Saturdays in Harrodsburg — and that's where you'll find us.</p>
-        <div class="stat-row">
-          <div class="stat-box"><div class="num" id="count1">0</div><div class="lbl">Days a Week</div></div>
-          <div class="stat-box"><div class="num" id="count2">0</div><div class="lbl">Smoked Meats</div></div>
-          <div class="stat-box"><div class="num" id="count3">0%</div><div class="lbl">Filler-Free</div></div>
-        </div>
-      </div>
+      <div class="how-step gsap-how"><div class="how-num">1</div><div style="font-size:22px;margin-bottom:8px;">📱</div><h4>Order Online or Call</h4><p>Place your order at bigfatsmokysubs.com or call 859-705-8665 for bigger orders. We love feeding a crowd.</p></div>
+      <div class="how-step gsap-how"><div class="how-num">2</div><div style="font-size:22px;margin-bottom:8px;">🔥</div><h4>We Smoke It Fresh</h4><p>Your meat is smoked low and slow in-house. No shortcuts. It takes time because it's done right.</p></div>
+      <div class="how-step gsap-how"><div class="how-num">3</div><div style="font-size:22px;margin-bottom:8px;">📍</div><h4>Come Get It</h4><p>Pick up at our Harrodsburg location. Friday or Saturday — choose your day. Come hungry.</p></div>
+      <div class="how-step gsap-how"><div class="how-num">4</div><div style="font-size:22px;margin-bottom:8px;">😤</div><h4>Leave Fixed</h4><p>Come hungry. Leave fixed. That's the Big Fat Smokys promise. You'll be back next week.</p></div>
     </div>
   </div>
 </section>
@@ -721,492 +476,163 @@ footer li a:hover{color:var(--fire);}
 <!-- REVIEWS -->
 <section class="rev-bg">
   <div class="container">
-    <p class="eyebrow gsap-fade">What People Are Saying</p>
-    <h2 class="sec-h2 light gsap-fade">Real Talk. <span class="fire">Real Hungry.</span></h2>
+    <p class="eyebrow gsap-fade">Word Gets Around</p>
+    <h2 class="sec-h2 gsap-fade" style="color:var(--white);">Real Hungry. <span style="color:var(--fire);">Real Talk.</span></h2>
     <div class="rev-grid">
-      <div class="rc"><div class="rc-stars">★★★★★</div><p>"Best sub I've had in Kentucky, no contest. The brisket was still smoky warm and the sauce they use — I've been thinking about it all week."</p><div class="rc-author"><div class="rc-av">J</div><div><strong>Jason T.</strong><span>Harrodsburg, KY</span></div></div></div>
-      <div class="rc"><div class="rc-stars">★★★★★</div><p>"Drove 40 minutes for this and I'd do it again. The Pulled Pork Bomb is the real deal. Get there early — they sold out by 1pm when I went."</p><div class="rc-author"><div class="rc-av">M</div><div><strong>Melissa R.</strong><span>Lexington, KY</span></div></div></div>
-      <div class="rc"><div class="rc-stars">★★★★★</div><p>"Three days a week only and I plan my whole weekend around it. The KY Smokehouse sub is different from anything else. Pure Central Kentucky."</p><div class="rc-author"><div class="rc-av">D</div><div><strong>Derek W.</strong><span>Georgetown, KY</span></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p>"The brisket by the pound is unreal. I got two pounds thinking I'd have leftovers. Rookie mistake. Gone in one sitting."</p><div class="rc-author"><div class="rc-av">J</div><div><strong>Jason T.</strong><span>Harrodsburg, KY</span></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p>"Catered our company lunch with Big Fat Smokys. 45 people and not a scrap left. The gumbo alone had people asking for the number."</p><div class="rc-author"><div class="rc-av">M</div><div><strong>Michelle R.</strong><span>Lexington, KY</span></div></div></div>
+      <div class="rc"><div class="rc-stars">★★★★★</div><p>"The fry pies finished me off. Already had two pounds of brisket and then the peach fry pie showed up. No regrets. None."</p><div class="rc-author"><div class="rc-av">D</div><div><strong>Derek W.</strong><span>Georgetown, KY</span></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<div class="final-cta">
-  <h2 class="gsap-cta">YOU HUNGRY OR WHAT?</h2>
-  <p class="sub gsap-cta">Order online · Thu–Sat only · Harrodsburg, KY · They sell out. Order early.</p>
-  <a href="https://bigfatsmokysubs.com" target="_blank" class="phone gsap-cta">bigfatsmokysubs.com</a>
+<!-- CTA -->
+<div class="cta-band" id="contact">
+  <h2 class="cta-h gsap-cta">COME HUNGRY.<br>LEAVE FIXED.</h2>
+  <p class="cta-sub gsap-cta">Fri &amp; Sat only · Harrodsburg, KY · Cash only until official launch · Catering available anytime</p>
+  <a href="tel:8597058665" class="cta-phone gsap-cta">859-705-8665</a>
   <div class="cta-btns gsap-cta">
     <a href="https://bigfatsmokysubs.com" target="_blank" class="btn-cream">Order Online Now</a>
-    <a href="#menu" class="btn-ghost-dark">See Full Menu</a>
+    <a href="tel:8597058665" class="btn-ghost-dk">📞 Call Ahead for Bigger Orders</a>
   </div>
+  <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:24px;position:relative;">BIG FAT SMOKYS · 859-705-8665 · Harrodsburg, KY</p>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="ft-grid">
     <div>
-      <div class="ft-logo">BIG <span class="fat">FAT</span> SMOKY SUBS</div>
-      <p>Hot, smoky, loaded subs made fast — piled high with smoked meats, bold sauces, and all the fixings you can handle. Harrodsburg, KY · Thu–Sat only.</p>
+      <div class="ft-logo">BIG <span class="fat">FAT</span> <span class="smokys">SMOKYS</span></div>
+      <p>Slow-smoked meats by the pound, homemade gumbo, fry pies, and sides. Open Friday &amp; Saturday in Harrodsburg, KY. BBQ catering available for events across Central Kentucky.</p>
       <br/>
-      <a href="https://bigfatsmokysubs.com" class="ft-ph" target="_blank">bigfatsmokysubs.com</a>
-      <p>Harrodsburg, KY · Thursdays, Fridays &amp; Saturdays</p>
+      <a href="tel:8597058665" class="ft-ph">859-705-8665</a>
+      <p>Harrodsburg, KY · Fri &amp; Sat · Cash Only Until Official Launch</p>
     </div>
     <div>
       <h4>Menu</h4>
       <ul>
-        <li><a href="#menu">The Big Fatty</a></li>
-        <li><a href="#menu">Pulled Pork Bomb</a></li>
-        <li><a href="#menu">Smoky Bird</a></li>
-        <li><a href="#menu">The Inferno</a></li>
-        <li><a href="#menu">KY Smokehouse</a></li>
-        <li><a href="#subs">The Whole Damn Thing</a></li>
+        <li><a href="#menu">Smoked Brisket $14/lb</a></li>
+        <li><a href="#menu">Smoky Chicken $11/lb</a></li>
+        <li><a href="#menu">Smoky Pork $10/lb</a></li>
+        <li><a href="#menu">Grilled Sausage $10/lb</a></li>
+        <li><a href="#menu">Smoky Gumbo $12</a></li>
+        <li><a href="#menu">Fry Pies $4 / 2 for $7</a></li>
+        <li><a href="#sides">Sides &amp; Add-Ons</a></li>
       </ul>
     </div>
     <div>
       <h4>Info</h4>
       <ul>
-        <li><a href="#order">Order Online</a></li>
-        <li><a href="#location">Location &amp; Hours</a></li>
-        <li><a href="#about">Our Story</a></li>
-        <li><a href="https://bigfatsmokysubs.com" target="_blank">Official Website</a></li>
+        <li><a href="#catering">BBQ Catering</a></li>
+        <li><a href="#how">How to Order</a></li>
+        <li><a href="https://bigfatsmokysubs.com" target="_blank">Order Online</a></li>
+        <li><a href="tel:8597058665">Call 859-705-8665</a></li>
       </ul>
       <br/>
-      <p style="font-size:12px;color:rgba(255,107,26,0.5);">Thu · Fri · Sat Only<br>Order early — we sell out.</p>
+      <p style="font-size:12px;color:rgba(255,107,26,0.5);">Fri &amp; Sat Only<br>Catering available anytime<br>Cash only until official launch</p>
     </div>
   </div>
   <div class="ft-bot">
-    <p>© 2025 Big Fat Smoky Subs. All rights reserved. · Harrodsburg, KY</p>
+    <p>© 2025 Big Fat Smokys. All rights reserved. · Harrodsburg, KY</p>
     <div class="sq-badge"><span>💳</span><span>Online ordering<br>powered by Square</span></div>
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════
-     THREE.JS — 3D SUB ASSEMBLY
-════════════════════════════════════ -->
+<!-- THREE.JS — 3D SMOKE & MEAT SCENE -->
 <script>
 (function(){
-  const canvas = document.getElementById('canvas3d');
-  if(!canvas || typeof THREE==='undefined') return;
-
-  const renderer = new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});
+  const canvas=document.getElementById('canvas3d');
+  if(!canvas||typeof THREE==='undefined') return;
+  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.1;
-
-  const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x0F0800,0.025);
-
-  const camera = new THREE.PerspectiveCamera(50,1,0.1,200);
+  renderer.shadowMap.enabled=true;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure=1.1;
+  const scene=new THREE.Scene();
+  scene.fog=new THREE.FogExp2(0x0F0800,0.025);
+  const camera=new THREE.PerspectiveCamera(50,1,0.1,200);
   camera.position.set(0,4,15);
   camera.lookAt(0,1,0);
-
-  function resize(){
-    const w=canvas.parentElement.clientWidth, h=canvas.parentElement.clientHeight;
-    renderer.setSize(w,h,false);
-    camera.aspect=w/h; camera.updateProjectionMatrix();
-  }
-  resize(); window.addEventListener('resize',resize);
-
-  // ── LIGHTING ────────────────────────────
+  function resize(){const w=canvas.parentElement.clientWidth,h=canvas.parentElement.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+  resize();window.addEventListener('resize',resize);
   scene.add(new THREE.AmbientLight(0x2A1000,0.5));
-
-  const key = new THREE.DirectionalLight(0xFFD060,1.4);
-  key.position.set(8,14,10);
-  key.castShadow=true;
-  key.shadow.mapSize.set(2048,2048);
-  key.shadow.bias=-0.0003;
-  scene.add(key);
-
-  // Fire glow
-  const fire1 = new THREE.PointLight(0xFF4400,2.5,20);
-  fire1.position.set(-4,2,4);
-  scene.add(fire1);
-
-  const fire2 = new THREE.PointLight(0xFF8800,1.8,16);
-  fire2.position.set(4,5,-3);
-  scene.add(fire2);
-
-  // Smoke fill
-  const smokeFill = new THREE.PointLight(0x8A7060,0.6,25);
-  smokeFill.position.set(0,-1,6);
-  scene.add(smokeFill);
-
-  // ── MATERIALS ───────────────────────────
-  const mat = (c,r=0.5,m=0,ec=0x000000,ei=0)=>
-    new THREE.MeshStandardMaterial({color:c,roughness:r,metalness:m,emissive:ec,emissiveIntensity:ei});
-
-  const mats = {
-    bunTop:    mat(0xD4A850,0.55,0.02,0xA07820,0.05),
-    bunBot:    mat(0xC89030,0.6,0.02),
-    meat:      mat(0x7A2800,0.7,0.05,0x3A0800,0.15),
-    meat2:     mat(0x5A1A00,0.75,0.05,0x2A0500,0.1),
-    cheese:    mat(0xFFA020,0.4,0.05,0xFF6000,0.08),
-    lettuce:   mat(0x3A8A20,0.8,0),
-    tomato:    mat(0xCC2200,0.6,0.05,0x880000,0.1),
-    onion:     mat(0xE8D0B0,0.55,0),
-    sauce:     mat(0x8B2200,0.3,0.1,0x440800,0.2),
-    ground:    mat(0x0A0500,0.95),
-    smoke:     mat(0x4A3020,0.9,0,0x2A1808,0.3),
-    ember:     mat(0xFF4400,0.15,0.1,0xFF2200,1.8),
-    grill:     mat(0x1A1A1A,0.7,0.6),
-  };
-
-  function box(w,h,d,m,cast=true,recv=true){
-    const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);
-    mesh.castShadow=cast; mesh.receiveShadow=recv; return mesh;
-  }
-  function cyl(rt,rb,h,s,m){
-    const mesh=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,s),m);
-    mesh.castShadow=true; return mesh;
-  }
-  function sphere(r,s,m){
-    return new THREE.Mesh(new THREE.SphereGeometry(r,s,s),m);
-  }
-
-  // ── GROUND / COUNTER ────────────────────
-  const counter = box(18,0.12,12,mats.grill,false,true);
-  counter.position.set(0,-0.06,0);
-  scene.add(counter);
-
-  // Grill grates
-  for(let x=-6;x<=6;x+=0.8){
-    const grate=box(0.06,0.05,8,mats.grill,false,true);
-    grate.position.set(x,0,0);
-    scene.add(grate);
-  }
-
-  // Ember glow on grill
-  const emberGlow = box(12,0.03,6,mats.ember,false,false);
-  emberGlow.position.set(0,0.07,0);
-  scene.add(emberGlow);
-
-  // ── SUB SANDWICH BUILD ───────────────────
-  // The sub assembles from bottom to top
-  // All pieces start high above and fall into place
-
-  const subParts = [];
-  let stackY = 0.12; // current stack height
-
-  function addPart(mesh, targetY, delay=0, startYOffset=8){
-    mesh.position.y = targetY + startYOffset;
-    mesh.userData = {targetY, delay, done:false};
-    subParts.push(mesh);
-    scene.add(mesh);
-    return mesh;
-  }
-
-  // Bottom bun — elongated loaf shape
-  const bunB1 = box(7,0.55,2.4,mats.bunBot);
-  bunB1.position.x = 0; bunB1.position.z = 0;
-  addPart(bunB1, stackY, 0);
-  stackY += 0.6;
-
-  // Sauce smear on bottom
-  const sauce1 = box(6.6,0.08,2.2,mats.sauce,false);
-  sauce1.position.set(0,0,0);
-  addPart(sauce1, stackY, 0.2);
-  stackY += 0.05;
-
-  // Meat layer 1 — brisket slices
+  const key=new THREE.DirectionalLight(0xFFD060,1.4);key.position.set(8,14,10);key.castShadow=true;key.shadow.mapSize.set(2048,2048);key.shadow.bias=-0.0003;scene.add(key);
+  const fire1=new THREE.PointLight(0xFF4400,2.5,20);fire1.position.set(-4,2,4);scene.add(fire1);
+  const fire2=new THREE.PointLight(0xFF8800,1.8,16);fire2.position.set(4,5,-3);scene.add(fire2);
+  const mat=(c,r=0.5,m=0,ec=0,ei=0)=>new THREE.MeshStandardMaterial({color:c,roughness:r,metalness:m,emissive:ec,emissiveIntensity:ei});
+  function box(w,h,d,m,cast=true,recv=true){const mesh=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);mesh.castShadow=cast;mesh.receiveShadow=recv;return mesh;}
+  const counter=box(18,0.12,12,mat(0x1A1A1A,0.7,0.6),false,true);counter.position.set(0,-0.06,0);scene.add(counter);
+  for(let x=-6;x<=6;x+=0.8){const g=box(0.06,0.05,8,mat(0x1A1A1A,0.7,0.6),false,true);g.position.set(x,0,0);scene.add(g);}
+  const emberGlow=box(12,0.03,6,mat(0xFF4400,0.15,0.1,0xFF2200,1.8),false,false);emberGlow.position.set(0,0.07,0);scene.add(emberGlow);
+  // Meat pieces on grill
+  const meats=[];
+  const meatMat=mat(0x7A2800,0.7,0.05,0x3A0800,0.15);
+  const meatMat2=mat(0x5A1A00,0.75,0.05,0x2A0500,0.1);
   for(let i=0;i<5;i++){
-    const slice=box(5.5,0.18,1.8,mats.meat);
-    slice.position.set((i-2)*0.3+(Math.random()-.5)*0.3, 0, (Math.random()-.5)*0.2);
-    slice.rotation.y=(Math.random()-.5)*0.1;
-    addPart(slice, stackY+i*0.05, 0.3+i*0.05);
+    const meat=box(1.2+Math.random()*0.6,0.3+Math.random()*0.15,0.8+Math.random()*0.4,i%2===0?meatMat:meatMat2);
+    meat.position.set(-3+i*1.5,(Math.random()-.5)*0.05+0.25,(Math.random()-.5)*0.8);
+    meat.rotation.y=(Math.random()-.5)*0.3;
+    meats.push(meat);scene.add(meat);
   }
-  stackY += 0.5;
-
-  // Cheese slice — melted look
-  const cheese=box(6,0.1,2.2,mats.cheese,false);
-  addPart(cheese, stackY, 0.7);
-  stackY += 0.08;
-
-  // Lettuce
-  for(let i=0;i<4;i++){
-    const leaf=box(4.5+Math.random(),0.12,1.6+Math.random()*.5,mats.lettuce);
-    leaf.rotation.y=(Math.random()-.5)*0.4;
-    leaf.position.set((Math.random()-.5)*0.8,0,(Math.random()-.5)*0.2);
-    addPart(leaf, stackY+i*0.04, 0.9+i*0.05);
-  }
-  stackY += 0.28;
-
-  // Tomato slices
-  for(let i=0;i<4;i++){
-    const tom=cyl(0.55,0.55,0.14,12,mats.tomato);
-    tom.position.set(-2.2+i*1.5,(Math.random()-.5)*0.05,(Math.random()-.5)*0.3);
-    addPart(tom, stackY, 1.1+i*0.06);
-  }
-  stackY += 0.2;
-
-  // Meat layer 2 — pulled pork
-  for(let i=0;i<6;i++){
-    const chunk=box(0.8+Math.random()*0.6,0.22+Math.random()*0.1,0.6+Math.random()*0.4,mats.meat2);
-    chunk.position.set(-2.5+i*1.0,(Math.random()-.5)*0.05,(Math.random()-.5)*0.5);
-    chunk.rotation.y=Math.random()*Math.PI;
-    addPart(chunk, stackY+Math.random()*0.1, 1.3+i*0.04);
-  }
-  stackY += 0.4;
-
-  // Onion rings
-  for(let i=0;i<5;i++){
-    const on=new THREE.Mesh(new THREE.TorusGeometry(0.35,0.06,6,12),mats.onion);
-    on.rotation.x=Math.PI/2+(Math.random()-.5)*0.3;
-    on.position.set(-2+i*1.0,(Math.random()-.5)*0.05,(Math.random()-.5)*0.2);
-    addPart(on, stackY+Math.random()*0.08, 1.5+i*0.04);
-  }
-  stackY += 0.25;
-
-  // Top sauce
-  const sauce2=box(6.2,0.07,2.1,mats.sauce,false);
-  addPart(sauce2, stackY, 1.8);
-  stackY += 0.05;
-
-  // Top bun
-  const bunTopMesh=new THREE.Mesh(
-    new THREE.CylinderGeometry(1.15,1.35,0.65,16,1,false,0,Math.PI*2),
-    mats.bunTop
-  );
-  bunTopMesh.scale.set(3.5,1,1.1);
-  addPart(bunTopMesh, stackY, 2.0, 12);
-  stackY += 0.6;
-
-  // ── SMOKE PARTICLES ─────────────────────
-  const SMOKE_N=200;
-  const smkGeo=new THREE.BufferGeometry();
-  const smkPos=new Float32Array(SMOKE_N*3);
-  const smkVel=new Float32Array(SMOKE_N*3);
-  const smkSizes=new Float32Array(SMOKE_N);
-
-  for(let i=0;i<SMOKE_N;i++){
-    smkPos[i*3]   = (Math.random()-.5)*8;
-    smkPos[i*3+1] = Math.random()*6;
-    smkPos[i*3+2] = (Math.random()-.5)*5;
-    smkVel[i*3]   = (Math.random()-.5)*0.008;
-    smkVel[i*3+1] = 0.008+Math.random()*0.012;
-    smkVel[i*3+2] = (Math.random()-.5)*0.005;
-    smkSizes[i]   = 0.04+Math.random()*0.06;
-  }
+  // Smoke particles
+  const SMOKE_N=200;const smkGeo=new THREE.BufferGeometry();const smkPos=new Float32Array(SMOKE_N*3);const smkVel=new Float32Array(SMOKE_N*3);
+  for(let i=0;i<SMOKE_N;i++){smkPos[i*3]=(Math.random()-.5)*8;smkPos[i*3+1]=Math.random()*6;smkPos[i*3+2]=(Math.random()-.5)*5;smkVel[i*3]=(Math.random()-.5)*0.008;smkVel[i*3+1]=0.008+Math.random()*0.012;smkVel[i*3+2]=(Math.random()-.5)*0.005;}
   smkGeo.setAttribute('position',new THREE.BufferAttribute(smkPos,3));
   const smkMat=new THREE.PointsMaterial({color:0x8A7060,size:0.06,transparent:true,opacity:0.35,sizeAttenuation:true});
-  const smokeParticles=new THREE.Points(smkGeo,smkMat);
-  scene.add(smokeParticles);
-
-  // Spark/ember particles
-  const SPARK_N=80;
-  const spkGeo=new THREE.BufferGeometry();
-  const spkPos=new Float32Array(SPARK_N*3);
-  const spkVel=new Float32Array(SPARK_N*3);
-  for(let i=0;i<SPARK_N;i++){
-    spkPos[i*3]   = (Math.random()-.5)*10;
-    spkPos[i*3+1] = Math.random()*0.5;
-    spkPos[i*3+2] = (Math.random()-.5)*6;
-    spkVel[i*3]   = (Math.random()-.5)*0.02;
-    spkVel[i*3+1] = 0.02+Math.random()*0.04;
-    spkVel[i*3+2] = (Math.random()-.5)*0.015;
-  }
+  scene.add(new THREE.Points(smkGeo,smkMat));
+  // Spark particles
+  const SPARK_N=80;const spkGeo=new THREE.BufferGeometry();const spkPos=new Float32Array(SPARK_N*3);const spkVel=new Float32Array(SPARK_N*3);
+  for(let i=0;i<SPARK_N;i++){spkPos[i*3]=(Math.random()-.5)*10;spkPos[i*3+1]=Math.random()*0.5;spkPos[i*3+2]=(Math.random()-.5)*6;spkVel[i*3]=(Math.random()-.5)*0.02;spkVel[i*3+1]=0.025+Math.random()*0.04;spkVel[i*3+2]=(Math.random()-.5)*0.015;}
   spkGeo.setAttribute('position',new THREE.BufferAttribute(spkPos,3));
   const spkMat=new THREE.PointsMaterial({color:0xFF5500,size:0.04,transparent:true,opacity:0.8});
-  const sparks=new THREE.Points(spkGeo,spkMat);
-  scene.add(sparks);
-
-  // ── MOUSE PARALLAX ──────────────────────
+  const sparks=new THREE.Points(spkGeo,spkMat);scene.add(sparks);
   let mouse={x:0,y:0},mLerp={x:0,y:0};
-  document.addEventListener('mousemove',e=>{
-    mouse.x=(e.clientX/innerWidth-.5)*2;
-    mouse.y=(e.clientY/innerHeight-.5)*2;
-  });
-
+  document.addEventListener('mousemove',e=>{mouse.x=(e.clientX/innerWidth-.5)*2;mouse.y=(e.clientY/innerHeight-.5)*2;});
   let scrollProg=0;
-  if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.create({trigger:'#hero',start:'top top',end:'bottom top',
-      onUpdate:s=>{scrollProg=s.progress;}});
-  }
-
+  if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){gsap.registerPlugin(ScrollTrigger);ScrollTrigger.create({trigger:'#hero',start:'top top',end:'bottom top',onUpdate:s=>{scrollProg=s.progress;}});}
   let t=0;
   function animate(){
-    requestAnimationFrame(animate);
-    t+=0.01;
-
-    mLerp.x+=(mouse.x-mLerp.x)*0.04;
-    mLerp.y+=(mouse.y-mLerp.y)*0.04;
-
-    // Camera orbit + mouse parallax
-    camera.position.x=mLerp.x*2+Math.sin(t*0.08)*0.5;
-    camera.position.y=4+mLerp.y*(-0.7)+Math.sin(t*0.06)*0.3-scrollProg*3;
-    camera.position.z=15-scrollProg*4;
-    camera.lookAt(mLerp.x*0.2,1.5+mLerp.y*0.3,0);
-
-    // Animate sub parts falling into place
-    subParts.forEach(p=>{
-      if(!p.userData.done){
-        p.position.y+=(p.userData.targetY-p.position.y)*0.04;
-        if(Math.abs(p.position.y-p.userData.targetY)<0.02){
-          p.position.y=p.userData.targetY;
-          p.userData.done=true;
-        }
-      }
-    });
-
-    // Gentle sub rotation/float
-    const subGroup={x:Math.sin(t*0.2)*0.3, z:Math.cos(t*0.15)*0.2};
-    subParts.forEach((p,i)=>{
-      if(p.userData.done){
-        p.rotation.y=subGroup.x*0.02+mLerp.x*0.04;
-        p.position.z=subGroup.z+mLerp.y*0.1+(i%3)*0.001;
-      }
-    });
-
-    // Smoke
-    const sp=smokeParticles.geometry.attributes.position;
-    for(let i=0;i<SMOKE_N;i++){
-      sp.array[i*3]+=smkVel[i*3]+Math.sin(t+i)*0.002;
-      sp.array[i*3+1]+=smkVel[i*3+1];
-      sp.array[i*3+2]+=smkVel[i*3+2];
-      if(sp.array[i*3+1]>7){
-        sp.array[i*3]=(Math.random()-.5)*6;
-        sp.array[i*3+1]=0;
-        sp.array[i*3+2]=(Math.random()-.5)*4;
-      }
-    }
-    sp.needsUpdate=true;
-    smkMat.opacity=0.28+Math.sin(t*0.8)*0.08;
-
-    // Sparks
-    const spk=sparks.geometry.attributes.position;
-    for(let i=0;i<SPARK_N;i++){
-      spk.array[i*3]+=spkVel[i*3];
-      spk.array[i*3+1]+=spkVel[i*3+1];
-      spk.array[i*3+2]+=spkVel[i*3+2];
-      spkVel[i*3+1]-=0.001;
-      if(spk.array[i*3+1]<0){
-        spk.array[i*3]=(Math.random()-.5)*8;
-        spk.array[i*3+1]=0;
-        spk.array[i*3+2]=(Math.random()-.5)*4;
-        spkVel[i*3]=(Math.random()-.5)*0.02;
-        spkVel[i*3+1]=0.025+Math.random()*0.04;
-      }
-    }
+    requestAnimationFrame(animate);t+=0.01;
+    mLerp.x+=(mouse.x-mLerp.x)*0.04;mLerp.y+=(mouse.y-mLerp.y)*0.04;
+    camera.position.x=mLerp.x*2+Math.sin(t*0.08)*0.5;camera.position.y=4+mLerp.y*(-0.7)+Math.sin(t*0.06)*0.3-scrollProg*3;camera.position.z=15-scrollProg*4;camera.lookAt(mLerp.x*0.2,1.5+mLerp.y*0.3,0);
+    const sp=smkGeo.attributes.position;for(let i=0;i<SMOKE_N;i++){sp.array[i*3]+=smkVel[i*3]+Math.sin(t+i)*0.002;sp.array[i*3+1]+=smkVel[i*3+1];sp.array[i*3+2]+=smkVel[i*3+2];if(sp.array[i*3+1]>7){sp.array[i*3]=(Math.random()-.5)*6;sp.array[i*3+1]=0;sp.array[i*3+2]=(Math.random()-.5)*4;}}
+    sp.needsUpdate=true;smkMat.opacity=0.28+Math.sin(t*0.8)*0.08;
+    const spk=sparks.geometry.attributes.position;for(let i=0;i<SPARK_N;i++){spk.array[i*3]+=spkVel[i*3];spk.array[i*3+1]+=spkVel[i*3+1];spk.array[i*3+2]+=spkVel[i*3+2];spkVel[i*3+1]-=0.001;if(spk.array[i*3+1]<0){spk.array[i*3]=(Math.random()-.5)*8;spk.array[i*3+1]=0;spk.array[i*3+2]=(Math.random()-.5)*4;spkVel[i*3]=(Math.random()-.5)*0.02;spkVel[i*3+1]=0.025+Math.random()*0.04;}}
     spk.needsUpdate=true;
-
-    // Fire lights flicker
-    fire1.intensity=2.2+Math.sin(t*7)*0.6+Math.sin(t*13)*0.3;
-    fire1.position.x=-4+Math.sin(t*0.5)*1.2;
-    fire2.intensity=1.5+Math.sin(t*5+1)*0.5;
-    fire2.position.x=4+Math.cos(t*0.4)*1;
-
-    // Ember glow pulse
-    mats.ember.emissiveIntensity=1.5+Math.sin(t*3)*0.4;
-
+    meats.forEach((m,i)=>{m.position.y=0.25+Math.sin(t*0.4+i)*0.008;});
+    fire1.intensity=2.2+Math.sin(t*7)*0.6;fire2.intensity=1.5+Math.sin(t*5+1)*0.5;
+    emberGlow.material.emissiveIntensity=1.5+Math.sin(t*3)*0.4;
     renderer.render(scene,camera);
   }
   animate();
 })();
 
-// ═══════════════════════════════════
-// GSAP — SCROLL ANIMATIONS
-// ═══════════════════════════════════
+// GSAP SCROLL ANIMATIONS
 (function(){
   if(typeof gsap==='undefined') return;
   gsap.registerPlugin(ScrollTrigger);
-
-  ScrollTrigger.create({
-    start:'top -60',
-    onToggle:s=>document.getElementById('nav').classList.toggle('scrolled',s.isActive)
-  });
-
-  // Hero entrance
+  ScrollTrigger.create({start:'top -60',onToggle:s=>document.getElementById('nav').classList.toggle('scrolled',s.isActive)});
   const tl=gsap.timeline({delay:0.15});
   tl.to('#eyebrow',{opacity:1,x:0,duration:0.7,ease:'power3.out'})
     .to('.hero-h1 .line span',{y:'0%',duration:1.0,stagger:0.14,ease:'power4.out'},'-=0.3')
     .to('#hero-tag',{opacity:1,x:0,duration:0.6,ease:'power3.out'},'-=0.4')
-    .to('#hero-desc',{opacity:1,y:0,duration:0.6,ease:'power3.out'},'-=0.3')
+    .to('#hero-sub',{opacity:1,y:0,duration:0.6,ease:'power3.out'},'-=0.3')
+    .to('#hero-cash',{opacity:1,duration:0.5},'-=0.2')
     .to('#hero-btns',{opacity:1,y:0,duration:0.6,ease:'power3.out'},'-=0.3')
-    .to('#hours-badge',{opacity:1,y:0,duration:0.5,ease:'power3.out'},'-=0.2');
-
-  // Generic fades
-  gsap.utils.toArray('.gsap-fade').forEach(el=>{
-    gsap.to(el,{opacity:1,y:0,duration:0.8,ease:'power3.out',
-      scrollTrigger:{trigger:el,start:'top 88%'}});
-  });
-
-  // Menu cards
-  gsap.to('.menu-card',{
-    opacity:1,y:0,duration:0.65,stagger:{each:0.1,from:'start'},
-    ease:'power3.out',scrollTrigger:{trigger:'.menu-grid',start:'top 85%'}
-  });
-
-  // Signature cards
-  gsap.to('.sig-card',{
-    opacity:1,y:0,duration:0.7,stagger:0.12,ease:'power3.out',
-    scrollTrigger:{trigger:'.sig-grid',start:'top 85%'}
-  });
-
-  // How steps
-  gsap.to('.gsap-how',{
-    opacity:1,y:0,duration:0.65,stagger:0.15,ease:'back.out(1.4)',
-    scrollTrigger:{trigger:'.how-grid',start:'top 85%'}
-  });
-
-  // Location cards
-  gsap.to('.loc-card',{
-    opacity:1,y:0,duration:0.65,stagger:0.12,ease:'power3.out',
-    scrollTrigger:{trigger:'.loc-grid',start:'top 85%'}
-  });
-
-  // About split
-  gsap.to('.about-visual',{opacity:1,x:0,duration:0.9,ease:'power3.out',
-    scrollTrigger:{trigger:'.about-inner',start:'top 82%'}});
-  gsap.to('.about-content',{opacity:1,x:0,duration:0.9,ease:'power3.out',delay:0.15,
-    scrollTrigger:{trigger:'.about-inner',start:'top 82%'}});
-
-  // Stats counters
-  ScrollTrigger.create({trigger:'#count1',start:'top 80%',
-    onEnter:()=>{
-      let n=0;
-      const iv=setInterval(()=>{n++;document.getElementById('count1').textContent=n;if(n>=3)clearInterval(iv);},200);
-    }});
-  ScrollTrigger.create({trigger:'#count2',start:'top 80%',
-    onEnter:()=>{
-      let n=0;
-      const iv=setInterval(()=>{n++;document.getElementById('count2').textContent=n;if(n>=6)clearInterval(iv);},150);
-    }});
-  ScrollTrigger.create({trigger:'#count3',start:'top 80%',
-    onEnter:()=>{
-      let n=0;
-      const iv=setInterval(()=>{n+=10;document.getElementById('count3').textContent=n+'%';if(n>=100)clearInterval(iv);},60);
-    }});
-
-  // Reviews
-  gsap.to('.rc',{
-    opacity:1,y:0,duration:0.7,stagger:0.12,ease:'power3.out',
-    scrollTrigger:{trigger:'.rev-grid',start:'top 85%'}
-  });
-
-  // CTA
-  gsap.utils.toArray('.gsap-cta').forEach((el,i)=>{
-    gsap.to(el,{opacity:1,y:0,duration:0.7,delay:i*0.1,ease:'power3.out',
-      scrollTrigger:{trigger:'.final-cta',start:'top 82%'}});
-  });
-
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{
-      const t=document.querySelector(a.getAttribute('href'));
-      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
-    });
-  });
+    .to('#hero-hours',{opacity:1,duration:0.5},'-=0.2');
+  gsap.utils.toArray('.gsap-fade').forEach(el=>{gsap.to(el,{opacity:1,y:0,duration:0.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});});
+  gsap.to('.menu-cat',{opacity:1,y:0,duration:0.65,stagger:{each:0.1,from:'start'},ease:'power3.out',scrollTrigger:{trigger:'.menu-wrapper',start:'top 85%'}});
+  gsap.to('.side-card',{opacity:1,y:0,duration:0.65,stagger:{each:0.1,from:'start'},ease:'power3.out',scrollTrigger:{trigger:'.sides-grid',start:'top 85%'}});
+  gsap.to('.cater-visual',{opacity:1,x:0,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:'.cater-grid',start:'top 82%'}});
+  gsap.to('.cater-content',{opacity:1,x:0,duration:0.9,ease:'power3.out',delay:0.15,scrollTrigger:{trigger:'.cater-grid',start:'top 82%'}});
+  gsap.to('.gsap-how',{opacity:1,y:0,duration:0.65,stagger:0.15,ease:'back.out(1.4)',scrollTrigger:{trigger:'.how-grid',start:'top 85%'}});
+  gsap.to('.rc',{opacity:1,y:0,duration:0.7,stagger:0.12,ease:'power3.out',scrollTrigger:{trigger:'.rev-grid',start:'top 85%'}});
+  gsap.utils.toArray('.gsap-cta').forEach((el,i)=>{gsap.to(el,{opacity:1,y:0,duration:0.7,delay:i*0.1,ease:'power3.out',scrollTrigger:{trigger:'.cta-band',start:'top 82%'}});});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
 })();
 </script>
 
-
-
-
-<!-- ═══════════════════════════════
-     CHATBOT — Big Fat Smoky Subs (No AI / No Credits)
-════════════════════════════════ -->
+<!-- CHATBOT -->
 <style>
 #sgc-btn{position:fixed;bottom:28px;right:28px;z-index:9999;width:62px;height:62px;border-radius:50%;background:#FF6B1A;border:none;cursor:pointer;box-shadow:0 4px 24px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;font-size:28px;transition:transform .2s,box-shadow .2s;}
 #sgc-btn:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(0,0,0,0.5);}
@@ -1244,108 +670,45 @@ footer li a:hover{color:var(--fire);}
 #sgc-send svg{width:14px;height:14px;fill:#fff;}
 @media(max-width:420px){#sgc-win{width:calc(100vw - 28px);right:14px;}#sgc-btn{right:14px;bottom:18px;}}
 </style>
-
-<button id="sgc-btn" onclick="sgcToggle()" aria-label="Chat with us">💬<span id="sgc-badge">1</span></button>
+<button id="sgc-btn" onclick="sgcToggle()" aria-label="Ask us anything">🔥<span id="sgc-badge">1</span></button>
 <div id="sgc-win">
-  <div id="sgc-hd">
-    <div class="sgc-hi">
-      <div class="sgc-av">💬</div>
-      <div class="sgc-ht"><h4>Big Fat Smoky Subs</h4><p><span class="sgc-dot"></span>Ask us anything</p></div>
-    </div>
-    <button id="sgc-x" onclick="sgcToggle()">✕</button>
-  </div>
+  <div id="sgc-hd"><div class="sgc-hi"><div class="sgc-av">🍖</div><div class="sgc-ht"><h4>Big Fat Smokys</h4><p><span class="sgc-dot"></span>Ask us anything</p></div></div><button id="sgc-x" onclick="sgcToggle()">✕</button></div>
   <div id="sgc-msgs"></div>
-  <div id="sgc-form">
-    <input id="sgc-inp" type="text" placeholder="Type your question..." onkeydown="if(event.key==='Enter')sgcSend()"/>
-    <button id="sgc-send" onclick="sgcSend()">
-      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
-    </button>
-  </div>
+  <div id="sgc-form"><input id="sgc-inp" type="text" placeholder="Menu, hours, catering..." onkeydown="if(event.key==='Enter')sgcSend()"/><button id="sgc-send" onclick="sgcSend()"><svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button></div>
 </div>
-
 <script>
 (function(){
-  const FAQS = [
-    {p:['menu','what do you have','food','sandwich','sub','subs','what can i get'], a:'🔥 Here\\'s our menu:\n\nThe Big Fatty $14 — Double smoked brisket, smoked gouda, house smoke sauce\nPulled Pork Bomb $13 — Pulled pork, coleslaw, pickled jalapeños\nSmoky Bird $12 — Smoked chicken, pepper jack, chipotle aioli\nSmoke & Stack $12 — Turkey, thick-cut bacon, swiss, honey mustard\nThe Inferno $13 — Smoked chorizo, ghost pepper cheese 🌶️\nKY Smokehouse $11 — Smoked ham, bologna, pimento cheese\nThe Whole Damn Thing $22 — EVERY meat, 14 inches 🤤\n\nOrder at bigfatsmokysubs.com!'},
-    {p:['price','cost','how much','cheap','expensive'], a:'Prices range from $11–$22. The KY Smokehouse is $11, most subs are $12–$13, and The Whole Damn Thing (every meat, 14 inches) is $22. Order at bigfatsmokysubs.com!'},
-    {p:['brisket','big fatty'], a:'The Big Fatty ($14) is our most popular — double smoked brisket, caramelized onions, smoked gouda, and our house smoke sauce on a toasted hoagie roll. It\\'s legendary. 🥩'},
-    {p:['pulled pork','pork bomb'], a:'The Pulled Pork Bomb ($13) is low & slow pulled pork with coleslaw, pickled jalapeños, and BBQ drizzle. Messy in the best way. One of our most requested!'},
-    {p:['spicy','hot','inferno','ghost pepper'], a:'The Inferno ($13) is for the brave 🌶️ — smoked chorizo, ghost pepper cheese, and habanero sauce. It\\'s genuinely spicy. You\\'ve been warned!'},
-    {p:['whole damn','everything','all meats','biggest'], a:'The Whole Damn Thing ($22) has EVERY smoked meat on the menu — brisket, pork, chicken, turkey, bacon — all the sauces, 14 inches long. We dare you. 😤'},
-    {p:['vegetarian','veggie','vegetable','no meat','green smoke'], a:'The Green Smoke ($11) is our vegetarian option — smoked portobello mushroom, roasted veg, smoked gouda, and herb aioli. Even meat lovers are surprised by this one!'},
-    {p:['special','pitmaster','weekly','today'], a:'The Pitmaster\\'s Pick changes every week — whatever\\'s coming off the smoker at peak perfection. Follow us on Facebook to see this week\\'s special before we sell out!'},
-    {p:['build','custom','make your own','customize'], a:'You can build your own sub from $10 — pick your meat, bread, cheese, sauce, and toppings. Order at bigfatsmokysubs.com to customize your perfect sub!'},
-    {p:['hours','open','when','days','schedule','thursday','friday','saturday'], a:'We\\'re open THURSDAYS, FRIDAYS & SATURDAYS ONLY. ⚠️ We sell out fast — order online early at bigfatsmokysubs.com to guarantee yours!'},
-    {p:['order','online','how to order','pickup','delivery'], a:'Order online at bigfatsmokysubs.com — powered by Square. Place your order ahead of time, we\\'ll have it hot and ready for pickup. No delivery, pickup only in Harrodsburg, KY.'},
-    {p:['location','where','address','harrodsburg'], a:'We\\'re in Harrodsburg, Kentucky (Central KY). Check bigfatsmokysubs.com for the exact address. Open Thu–Sat only — order online to skip the wait!'},
-    {p:['smoke','smoked','how','cook','made'], a:'Every meat is smoked in-house daily. We don\\'t shortcut anything — low and slow, the real way. That\\'s why we\\'re only open three days a week. Doing it right takes time. 🔥'},
-    {p:['sell out','sold out','run out'], a:'Yes — we sell out regularly! 😬 That\\'s why we recommend ordering online early at bigfatsmokysubs.com as soon as we open. Follow our Facebook for updates on quantities.'},
-    {p:['facebook','social','follow','instagram'], a:'Follow us on Facebook for the weekly Pitmaster\\'s Pick, when we\\'re running low, and any schedule updates. Search Big Fat Smoky Subs!'},
-    {p:['hello','hi','hey','help'], a:'Hey! 🔥 Welcome to Big Fat Smoky Subs. We\\'re open Thu–Sat in Harrodsburg, KY — smoked in-house, limited quantities. What can I help you with?'},
-    {p:['gluten','allergy','dairy','nut'], a:'For specific allergy questions, please reach out to us directly via bigfatsmokysubs.com or contact us on Facebook — our team can give you accurate ingredient info!'},
+  const FAQS=[
+    {p:['menu','what do you have','food','what can','eat'],a:'🔥 Smoked Brisket $14/lb · Smoky Chicken $11/lb · Smoky Pork $10/lb · Grilled Sausage $10/lb · Gumbo (32oz) $12 · Homemade Rolls $3 · Fry Pies $4 (2 for $7). Plus sides and sauces! Order at bigfatsmokysubs.com'},
+    {p:['brisket'],a:'Smoked Brisket is $14/lb — our most popular cut. Slow-smoked in-house until tender and juicy. Order online or call 859-705-8665 for bigger orders!'},
+    {p:['chicken'],a:'Smoky Chicken is $11/lb — fall-off-the-bone smoked chicken. Get it by the pound and load up!'},
+    {p:['pork'],a:'Smoky Pork is $10/lb — slow-smoked pulled pork. Pairs great with our sauces and rolls.'},
+    {p:['sausage'],a:'Grilled Sausage is $10/lb — house-seasoned and grilled fresh. Great alongside the other meats!'},
+    {p:['gumbo'],a:'32 oz Smoky Gumbo is $12! Choose mild, medium, or spicy. Rich, smoky, and packed full. One of our best sellers.'},
+    {p:['roll','bread'],a:'Homemade Rolls are 2 for $3 — hearty, thick, and perfect for loading up with smoked meat and sauce.'},
+    {p:['sauce'],a:'Our sauces: Sweet · Sweet & Spicy · Garlic Parmesan · Beer Cheese · Carolina Gold · Pimento Cheese. All house-made!'},
+    {p:['fry pie','dessert','pie'],a:'Fry Pies are $4 each or 2 for $7! Flavors: Lemon · Peach · Apple · Cherry. Fried fresh. Do not skip these.'},
+    {p:['side','potato','bacon','pepper','rice','slaw'],a:'Our sides: Roasted Fingerling Potatoes $6 · Smoky Bacon $6 · Sweet Roasted Peppers $6 · Saucy Rice $4 · Slaw $2 · Sweet Smoky Peppers $2. All made from scratch!'},
+    {p:['price','cost','how much','cheap'],a:'Meats are $10–$14/lb. Gumbo $12. Rolls $3. Fry Pies $4 (2 for $7). Sides $2–$6. Drinks $1–$2. Order at bigfatsmokysubs.com!'},
+    {p:['hours','open','when','days','friday','saturday','thursday'],a:'We are open FRIDAY & SATURDAY ONLY in Harrodsburg, KY. Cash only until our official launch. Order online early at bigfatsmokysubs.com — we sell out!'},
+    {p:['cater','catering','event','party','wedding','corporate','group','crowd'],a:'Yes! Catering is what we do best 🍖 We cater weddings, corporate events, parties, reunions, church events and more. Call 859-705-8665 to book your catering order!'},
+    {p:['order','online','how to','pickup','delivery'],a:'Order online at bigfatsmokysubs.com (powered by Square). For bigger orders, call ahead at 859-705-8665 so we can have everything hot and ready for pickup!'},
+    {p:['cash','payment','card','credit'],a:'Cash only until our official launch! Plan accordingly. Order ahead at bigfatsmokysubs.com or call 859-705-8665.'},
+    {p:['location','where','address','harrodsburg'],a:'We are in Harrodsburg, Kentucky (Central KY). Visit bigfatsmokysubs.com for the exact address. Open Friday & Saturday only!'},
+    {p:['sell out','sold out','run out'],a:'Yes — we sell out! 😬 Order online early at bigfatsmokysubs.com and call ahead for bigger orders at 859-705-8665. Don't miss out!'},
+    {p:['phone','call','number','contact'],a:'Call us at 859-705-8665! Great for bigger orders, catering bookings, or any questions.'},
+    {p:['hello','hi','hey','help'],a:'Hey! 🔥 Welcome to Big Fat Smokys. Open Fri & Sat in Harrodsburg, KY. Slow-smoked meats by the pound, gumbo, fry pies, and catering. What can I help with?'},
   ];
-  const QUICK = ['See the menu 🍖','Order online','Hours & location','What\\'s the most popular?'];
-  const FALLBACK = "Great question! For the most accurate answer, give us a call — we're happy to help. 📞";
-
-  // Render greeting + quick questions
-  const msgs = document.getElementById('sgc-msgs');
-  addBot('Hey! 🔥 Thu–Sat only, we sell out fast! Ask about our menu, ordering, or hours.', true);
-
-  function addBot(text, withQuick){
-    const row = document.createElement('div');
-    row.className = 'sgc-row b';
-    let qs = '';
-    if(withQuick){
-      qs = '<div class="sgc-qs">' + QUICK.map(q=>`<button class="sgc-q" onclick="sgcAsk('${q.replace(/'/g,"\'")}')">${q}</button>`).join('') + '</div>';
-    }
-    row.innerHTML = `<div class="sgc-ic">💬</div><div><div class="sgc-bub">${text}</div>${qs}</div>`;
-    msgs.appendChild(row);
-    msgs.scrollTop = msgs.scrollHeight;
-  }
-
-  function addUser(text){
-    const row = document.createElement('div');
-    row.className = 'sgc-row u';
-    row.innerHTML = `<div class="sgc-ic">👤</div><div class="sgc-bub">${text}</div>`;
-    msgs.appendChild(row);
-    msgs.scrollTop = msgs.scrollHeight;
-  }
-
-  function match(input){
-    const q = input.toLowerCase().replace(/[^a-z0-9 ]/g,' ');
-    for(const faq of FAQS){
-      for(const p of faq.p){
-        if(q.includes(p)) return faq.a;
-      }
-    }
-    return null;
-  }
-
-  window.sgcToggle = function(){
-    const w = document.getElementById('sgc-win');
-    document.getElementById('sgc-badge').style.display='none';
-    w.classList.toggle('open');
-    if(w.classList.contains('open')) document.getElementById('sgc-inp').focus();
-  };
-
-  window.sgcSend = function(){
-    const inp = document.getElementById('sgc-inp');
-    const text = inp.value.trim();
-    if(!text) return;
-    inp.value = '';
-    sgcAsk(text);
-  };
-
-  window.sgcAsk = function(text){
-    addUser(text);
-    // Small delay to feel natural
-    setTimeout(()=>{
-      const answer = match(text) || FALLBACK;
-      addBot(answer, false);
-    }, 320);
-  };
+  const QUICK=['See the menu 🍖','Catering info','Hours & location','Order online'];
+  const msgs=document.getElementById('sgc-msgs');
+  addBot('Hey! 🔥 Big Fat Smokys — smoked meats by the pound, Fri & Sat in Harrodsburg. Come hungry. Leave fixed.',true);
+  function addBot(text,withQ){const row=document.createElement('div');row.className='sgc-row b';let qs='';if(withQ){qs='<div class="sgc-qs">'+QUICK.map(q=>`<button class="sgc-q" onclick="sgcAsk('${q.replace(/'/g,"\'")}')">${q}</button>`).join('')+'</div>';}row.innerHTML=`<div class="sgc-ic">🍖</div><div><div class="sgc-bub">${text}</div>${qs}</div>`;msgs.appendChild(row);msgs.scrollTop=msgs.scrollHeight;}
+  function addUser(text){const row=document.createElement('div');row.className='sgc-row u';row.innerHTML=`<div class="sgc-ic">👤</div><div class="sgc-bub">${text}</div>`;msgs.appendChild(row);msgs.scrollTop=msgs.scrollHeight;}
+  function match(input){const q=input.toLowerCase().replace(/[^a-z0-9 ]/g,' ');for(const f of FAQS){for(const p of f.p){if(q.includes(p))return f.a;}}return null;}
+  window.sgcToggle=function(){const w=document.getElementById('sgc-win');document.getElementById('sgc-badge').style.display='none';w.classList.toggle('open');if(w.classList.contains('open'))document.getElementById('sgc-inp').focus();};
+  window.sgcSend=function(){const inp=document.getElementById('sgc-inp');const text=inp.value.trim();if(!text)return;inp.value='';sgcAsk(text);};
+  window.sgcAsk=function(text){addUser(text);setTimeout(()=>{const a=match(text)||'Great question! Check bigfatsmokysubs.com or call 859-705-8665 for the most up-to-date info!';addBot(a,false);},300);};
 })();
 </script>
-<!-- END CHATBOT -->
 </body>
 </html>
