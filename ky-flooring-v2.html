@@ -1294,148 +1294,154 @@ footer li a:hover{color:var(--accent2);}
 
 
 
-<!-- ═══════════════════════════════
-     CHATBOT — KY Flooring & Cabinets (No AI / No Credits)
-════════════════════════════════ -->
+
+
+<!-- CHATBOT — KY Flooring & Cabinets -->
 <style>
-#sgc-btn{position:fixed;bottom:28px;right:28px;z-index:9999;width:62px;height:62px;border-radius:50%;background:#A8D4F5;border:none;cursor:pointer;box-shadow:0 4px 24px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;font-size:28px;transition:transform .2s,box-shadow .2s;}
-#sgc-btn:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(0,0,0,0.5);}
-#sgc-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;border-radius:50%;background:#FF3B30;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;animation:sgcPulse 2s infinite;}
-@keyframes sgcPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.25);}}
-#sgc-win{position:fixed;bottom:104px;right:28px;z-index:9999;width:340px;max-height:520px;background:#07141F;border-radius:16px;box-shadow:0 8px 48px rgba(0,0,0,0.55);display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(255,255,255,0.09);font-family:'Inter',sans-serif;}
-#sgc-win.open{display:flex;animation:sgcUp .22s ease-out;}
-@keyframes sgcUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
-#sgc-hd{background:#A8D4F5;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.sgc-hi{display:flex;align-items:center;gap:10px;}
-.sgc-av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;}
-.sgc-ht h4{font-size:14px;font-weight:700;color:#0D2238;margin:0;}
-.sgc-ht p{font-size:11px;color:rgba(255,255,255,0.78);margin:0;}
-.sgc-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;display:inline-block;margin-right:4px;box-shadow:0 0 0 2px rgba(76,175,80,0.3);}
-#sgc-x{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);font-size:20px;padding:4px;line-height:1;}
-#sgc-x:hover{color:#fff;}
-#sgc-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;max-height:340px;}
-#sgc-msgs::-webkit-scrollbar{width:3px;}
-#sgc-msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px;}
+#sgc-btn{position:fixed;bottom:28px;right:28px;z-index:9999;width:62px;height:62px;border-radius:50%;background:#7EB6E8;border:none;cursor:pointer;box-shadow:0 4px 24px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;font-size:26px;transition:transform .2s;}
+#sgc-btn:hover{transform:scale(1.1);}
+#sgc-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;border-radius:50%;background:#FF3B30;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+#sgc-win{position:fixed;bottom:102px;right:28px;z-index:9999;width:330px;background:#07141F;border-radius:16px;box-shadow:0 8px 48px rgba(0,0,0,0.55);display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(255,255,255,0.1);font-family:sans-serif;max-height:500px;}
+#sgc-win.open{display:flex;}
+#sgc-hd{background:#7EB6E8;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+#sgc-hd h4{font-size:14px;font-weight:700;color:#0D2238;margin:0;}
+#sgc-hd p{font-size:11px;color:rgba(255,255,255,0.8);margin:0;}
+#sgc-x{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.85);font-size:20px;padding:2px 6px;line-height:1;}
+#sgc-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;}
 .sgc-row{display:flex;gap:8px;align-items:flex-end;}
 .sgc-row.u{flex-direction:row-reverse;}
-.sgc-bub{max-width:82%;padding:9px 13px;border-radius:14px;font-size:13px;line-height:1.55;}
-.sgc-row.b .sgc-bub{background:rgba(255,255,255,0.09);color:rgba(255,255,255,0.92);border-bottom-left-radius:3px;}
-.sgc-row.u .sgc-bub{background:#A8D4F5;color:#0D2238;border-bottom-right-radius:3px;}
-.sgc-ic{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
-.sgc-qs{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
-.sgc-q{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:12px;padding:5px 11px;font-size:12px;color:rgba(255,255,255,0.82);cursor:pointer;transition:background .2s;white-space:nowrap;}
-.sgc-q:hover{background:rgba(255,255,255,0.15);color:#fff;}
-#sgc-form{padding:10px 12px;border-top:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;flex-shrink:0;background:rgba(0,0,0,0.18);}
-#sgc-inp{flex:1;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:8px 14px;color:#fff;font-size:13px;font-family:inherit;outline:none;}
-#sgc-inp::placeholder{color:rgba(255,255,255,0.35);}
-#sgc-inp:focus{border-color:rgba(255,255,255,0.28);}
-#sgc-send{width:34px;height:34px;border-radius:50%;background:#A8D4F5;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;transition:transform .15s;}
-#sgc-send:hover{transform:scale(1.1);}
-#sgc-send svg{width:14px;height:14px;fill:#0D2238;}
-@media(max-width:420px){#sgc-win{width:calc(100vw - 28px);right:14px;}#sgc-btn{right:14px;bottom:18px;}}
+.sgc-bub{max-width:85%;padding:9px 13px;border-radius:14px;font-size:13px;line-height:1.55;word-break:break-word;}
+.sgc-row.b .sgc-bub{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.92);border-bottom-left-radius:3px;}
+.sgc-row.u .sgc-bub{background:#7EB6E8;color:#0D2238;border-bottom-right-radius:3px;}
+.sgc-ic{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.sgc-qs{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.sgc-q{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:5px 10px;font-size:12px;color:rgba(255,255,255,0.85);cursor:pointer;white-space:nowrap;}
+.sgc-q:hover{background:rgba(255,255,255,0.16);}
+#sgc-form{padding:10px 12px;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:8px;flex-shrink:0;}
+#sgc-inp{flex:1;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:8px 14px;color:#fff;font-size:13px;outline:none;}
+#sgc-inp::placeholder{color:rgba(255,255,255,0.38);}
+#sgc-send{width:34px;height:34px;border-radius:50%;background:#7EB6E8;border:none;cursor:pointer;flex-shrink:0;align-self:flex-end;font-size:16px;}
+@media(max-width:420px){#sgc-win{width:calc(100vw - 24px);right:12px;}#sgc-btn{right:12px;bottom:16px;}}
 </style>
 
-<button id="sgc-btn" onclick="sgcToggle()" aria-label="Chat with us">💬<span id="sgc-badge">1</span></button>
+<button id="sgc-btn" onclick="sgcToggle()" aria-label="Chat">💬<span id="sgc-badge">1</span></button>
 <div id="sgc-win">
   <div id="sgc-hd">
-    <div class="sgc-hi">
-      <div class="sgc-av">💬</div>
-      <div class="sgc-ht"><h4>KY Flooring & Cabinets</h4><p><span class="sgc-dot"></span>Ask us anything</p></div>
-    </div>
-    <button id="sgc-x" onclick="sgcToggle()">✕</button>
+    <div><h4>KY Flooring & Cabinets</h4><p>&#x25cf; Ask us anything</p></div>
+    <button id="sgc-x" onclick="sgcToggle()">&#x2715;</button>
   </div>
   <div id="sgc-msgs"></div>
   <div id="sgc-form">
-    <input id="sgc-inp" type="text" placeholder="Type your question..." onkeydown="if(event.key==='Enter')sgcSend()"/>
-    <button id="sgc-send" onclick="sgcSend()">
-      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
-    </button>
+    <input id="sgc-inp" type="text" placeholder="Type a question..." />
+    <button id="sgc-send">&#x27A4;</button>
   </div>
 </div>
 
 <script>
-(function(){
-  const FAQS = [
-    {p:['estimate','quote','free','cost','price','how much'], a:'We offer FREE estimates! Just call Wayne at 859-705-8665 and he\'ll come measure your space and give you an honest quote. No pressure, no sales staff — just Wayne.'},
-    {p:['hardwood','wood floor','sand','refinish','polish'], a:'We sell, install, sand, and refinish hardwood floors. Brands include Mullican, Mannington, and Lonesome Oak. Hardwood can be sanded and refinished multiple times — it lasts a lifetime with proper care.'},
-    {p:['lvp','vinyl','luxury vinyl','waterproof','pet'], a:'Our Luxury Vinyl Plank & Tile is 100% waterproof and pet-friendly — perfect for kitchens, bathrooms, and busy households. Brands include Tarkett, Casabella, and Timeless Design.'},
-    {p:['carpet','rug'], a:'We carry a great selection of carpet from Dreamweaver and SEM Group. Perfect for bedrooms and living rooms. Come in and feel the difference — samples are always in store!'},
-    {p:['cabinet','kitchen','bathroom'], a:'We do full custom cabinets, semi-custom, and RTA options for kitchens and bathrooms. We also offer quartz and granite countertops. Call Wayne at 859-705-8665 for a cabinet consultation.'},
-    {p:['tile','ceramic','porcelain','granite','quartz'], a:'We carry ceramic, porcelain, tile, granite, and quartz — great for kitchens, bathrooms, and floors. Wide selection in our showroom at 987 Danville Rd, Harrodsburg.'},
-    {p:['laminate'], a:'Laminate flooring is our budget-friendly option that looks just like real wood. Brands include Mannington and Tarkett. Durable, easy to clean, and great for high-traffic areas.'},
-    {p:['install','installation','do you install'], a:'Yes! Professional installation is included with all our flooring and cabinet purchases. Wayne and his team handle everything — fast turnaround and clean job sites every time.'},
-    {p:['water','flood','emergency','24 hour','24hr'], a:'We offer 24-Hour Emergency Water Removal! Call us right away at 859-705-8665 — fast response minimizes floor damage and restoration costs. Don\'t wait!'},
-    {p:['basement','stain','seal','remodel','brickwork','stucco'], a:'We do Basement Floor Staining & Sealing and Complete Basement Restoration & Remodeling — including sleek, cost-effective designs using brickwork and stucco. Call 859-705-8665 for details.'},
-    {p:['floor prep','leveling','preparation','subfloor'], a:'We provide professional floor preparation and leveling services. Flat floors are better floors — proper prep ensures your new flooring lasts longer and looks perfect.'},
-    {p:['hours','open','when','schedule'], a:'Call Wayne at 859-705-8665 to schedule a visit or estimate. Our showroom is at 987 Danville Rd, Harrodsburg, KY. New samples arrive weekly!'},
-    {p:['location','address','where','showroom'], a:'We\'re located at 987 Danville Rd, Harrodsburg, KY. Come see our showroom — including our famous hand-painted floor mural! Call 859-705-8665 to confirm visit times.'},
-    {p:['area','serve','lexington','georgetown','nicholasville','frankfort'], a:'We serve all of Central Kentucky — Harrodsburg, Lexington, Georgetown, Nicholasville, Versailles, Winchester, Frankfort, Richmond, and surrounding areas.'},
-    {p:['wayne','owner','certified','iicrc'], a:'Wayne Lacey is the owner and an IICRC Certified Master Technician — certifications that big box stores don\'t require from their staff. You work directly with Wayne, no middlemen!'},
-    {p:['brand','carry','sell','mannington','tarkett','mullican'], a:'We carry top brands including Mullican, Mannington, Lonesome Oak, Tarkett, Casabella, Timeless Design, Dreamweaver, and SEM Group. New samples arrive weekly!'},
-    {p:['mural','painting','floor art','desmond'], a:'Our showroom features a stunning hand-painted floor mural by local artist Desmond L. Brittle (2022). It\'s a 3D trompe-l\\'oeil masterpiece painted right on the floor — worth a visit! 987 Danville Rd, Harrodsburg.'},
-    {p:['phone','call','contact','number'], a:'Call or text Wayne directly at 859-705-8665. He answers his own phone — no call centers, no runaround!'},
-    {p:['hello','hi','hey','help'], a:'Hi there! 👋 I can help you with questions about our flooring, cabinets, installation, pricing, and more. What can I help you with today?'},
+(function() {
+  // ── DATA ──────────────────────────────
+  var FAQS = [
+  {p:["estimate","quote","free","cost","price","how much"],a:"We offer FREE estimates! Call Wayne at 859-705-8665 and he will come measure your space and give you an honest quote. No pressure, no sales staff."},
+  {p:["hardwood","wood floor","sand","refinish"],a:"We sell, install, sand and refinish hardwood floors. Brands include Mullican, Mannington and Lonesome Oak. Hardwood can be sanded and refinished multiple times."},
+  {p:["lvp","vinyl","luxury vinyl","waterproof","pet"],a:"Our Luxury Vinyl Plank is 100% waterproof and pet-friendly. Brands include Tarkett, Casabella and Timeless Design. Perfect for kitchens and busy households."},
+  {p:["carpet"],a:"We carry carpet from Dreamweaver and SEM Group. Perfect for bedrooms and living rooms. Come in and feel the samples!"},
+  {p:["cabinet","kitchen","bathroom","quartz","countertop"],a:"We do full custom cabinets, semi-custom, and RTA options for kitchens and bathrooms. Quartz and granite countertops too. Call Wayne at 859-705-8665."},
+  {p:["tile","ceramic","porcelain","granite"],a:"We carry ceramic, porcelain, tile, granite, and quartz. Wide selection in our showroom at 987 Danville Rd, Harrodsburg."},
+  {p:["laminate"],a:"Laminate flooring is our budget-friendly option. Brands include Mannington and Tarkett. Durable and easy to clean."},
+  {p:["install","installation"],a:"Yes! Professional installation is included with all our flooring and cabinet purchases. Fast turnaround, clean job sites every time."},
+  {p:["water","flood","emergency","24 hour"],a:"We offer 24-Hour Emergency Water Removal! Call 859-705-8665 right away. Fast response minimizes floor damage and cost."},
+  {p:["basement","stain","seal","remodel","brickwork","stucco"],a:"We do Basement Floor Staining and Sealing, and Complete Basement Restoration using brickwork and stucco. Call 859-705-8665 for details."},
+  {p:["hours","open","when"],a:"Call Wayne at 859-705-8665 to schedule. Showroom at 987 Danville Rd, Harrodsburg, KY. New samples arrive weekly!"},
+  {p:["location","address","where","showroom"],a:"We are at 987 Danville Rd, Harrodsburg, KY. Come see our showroom including our famous hand-painted floor mural! Call 859-705-8665."},
+  {p:["area","serve","lexington","georgetown","nicholasville","frankfort","central ky"],a:"We serve all of Central Kentucky - Harrodsburg, Lexington, Georgetown, Nicholasville, Versailles, Winchester, Frankfort, Richmond and surrounding areas."},
+  {p:["wayne","owner","certified","iicrc"],a:"Wayne Lacey is the owner and an IICRC Certified Master Technician. You work directly with Wayne - no middlemen, no call centers!"},
+  {p:["phone","call","contact","number"],a:"Call or text Wayne directly at 859-705-8665. He answers his own phone!"},
+  {p:["mural","painting","art","desmond"],a:"Our showroom features a stunning hand-painted floor mural by local artist Desmond L. Brittle (2022). A 3D masterpiece painted right on the floor! 987 Danville Rd, Harrodsburg."},
+  {p:["hello","hi","hey","help","good morning","good afternoon"],a:"Hi there! I can help with questions about flooring, cabinets, installation, and more. What can I help you with today?"},
   ];
-  const QUICK = ['Get a free estimate','What flooring do you carry?','Do you install?','Hours & location'];
-  const FALLBACK = "Great question! For the most accurate answer, give us a call — we're happy to help. 📞";
+  var QUICK = ["Get a free estimate","What flooring do you carry?","Do you install?","Hours and location"];
+  var FALLBACK = "Great question! Give us a call for the most accurate answer — we are happy to help!";
 
-  // Render greeting + quick questions
-  const msgs = document.getElementById('sgc-msgs');
-  addBot('Hi! 👋 Welcome to KY Flooring & Cabinets. Ask me about flooring, cabinets, installation, or tap a question below!', true);
+  // ── DOM REFS ──────────────────────────
+  var win   = document.getElementById('sgc-win');
+  var msgs  = document.getElementById('sgc-msgs');
+  var inp   = document.getElementById('sgc-inp');
+  var badge = document.getElementById('sgc-badge');
 
-  function addBot(text, withQuick){
-    const row = document.createElement('div');
+  // ── HELPERS ───────────────────────────
+  function addBot(text, withQuick) {
+    var row = document.createElement('div');
     row.className = 'sgc-row b';
-    let qs = '';
-    if(withQuick){
-      qs = '<div class="sgc-qs">' + QUICK.map(q=>`<button class="sgc-q" onclick="sgcAsk('${q.replace(/'/g,"\'")}')">${q}</button>`).join('') + '</div>';
+    var qHTML = '';
+    if (withQuick) {
+      qHTML = '<div class="sgc-qs">';
+      for (var i = 0; i < QUICK.length; i++) {
+        qHTML += '<button class="sgc-q" onclick="sgcAsk(this.textContent)">' + QUICK[i] + '</button>';
+      }
+      qHTML += '</div>';
     }
-    row.innerHTML = `<div class="sgc-ic">💬</div><div><div class="sgc-bub">${text}</div>${qs}</div>`;
+    row.innerHTML = '<div class="sgc-ic">💬</div><div><div class="sgc-bub">' + text + '</div>' + qHTML + '</div>';
     msgs.appendChild(row);
     msgs.scrollTop = msgs.scrollHeight;
   }
 
-  function addUser(text){
-    const row = document.createElement('div');
+  function addUser(text) {
+    var row = document.createElement('div');
     row.className = 'sgc-row u';
-    row.innerHTML = `<div class="sgc-ic">👤</div><div class="sgc-bub">${text}</div>`;
+    row.innerHTML = '<div class="sgc-ic">&#x1F464;</div><div class="sgc-bub">' + text + '</div>';
     msgs.appendChild(row);
     msgs.scrollTop = msgs.scrollHeight;
   }
 
-  function match(input){
-    const q = input.toLowerCase().replace(/[^a-z0-9 ]/g,' ');
-    for(const faq of FAQS){
-      for(const p of faq.p){
-        if(q.includes(p)) return faq.a;
+  function match(input) {
+    var q = input.toLowerCase().replace(/[^a-z0-9 ]/g, ' ');
+    for (var i = 0; i < FAQS.length; i++) {
+      for (var j = 0; j < FAQS[i].p.length; j++) {
+        if (q.indexOf(FAQS[i].p[j]) !== -1) {
+          return FAQS[i].a;
+        }
       }
     }
     return null;
   }
 
-  window.sgcToggle = function(){
-    const w = document.getElementById('sgc-win');
-    document.getElementById('sgc-badge').style.display='none';
-    w.classList.toggle('open');
-    if(w.classList.contains('open')) document.getElementById('sgc-inp').focus();
+  // ── PUBLIC API ────────────────────────
+  window.sgcToggle = function() {
+    if (win.classList.contains('open')) {
+      win.classList.remove('open');
+    } else {
+      win.classList.add('open');
+      badge.style.display = 'none';
+      inp.focus();
+    }
   };
 
-  window.sgcSend = function(){
-    const inp = document.getElementById('sgc-inp');
-    const text = inp.value.trim();
-    if(!text) return;
+  window.sgcSend = function() {
+    var text = inp.value.trim();
+    if (!text) return;
     inp.value = '';
     sgcAsk(text);
   };
 
-  window.sgcAsk = function(text){
+  window.sgcAsk = function(text) {
     addUser(text);
-    // Small delay to feel natural
-    setTimeout(()=>{
-      const answer = match(text) || FALLBACK;
+    setTimeout(function() {
+      var answer = match(text) || FALLBACK;
       addBot(answer, false);
-    }, 320);
+    }, 280);
   };
+
+  // ── WIRE UP SEND BUTTON & ENTER KEY ──
+  document.getElementById('sgc-send').addEventListener('click', function() {
+    window.sgcSend();
+  });
+  inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') window.sgcSend();
+  });
+
+  // ── INIT GREETING ─────────────────────
+  addBot("Hi! Ask me about flooring, cabinets, or services. Tap a question or type below!", true);
+
 })();
 </script>
 <!-- END CHATBOT -->
