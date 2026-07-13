@@ -710,5 +710,157 @@ footer li a:hover{color:var(--fire);}
   window.sgcAsk=function(text){addUser(text);setTimeout(()=>{const a=match(text)||'Great question! Check bigfatsmokysubs.com or call 859-705-8665 for the most up-to-date info!';addBot(a,false);},300);};
 })();
 </script>
+
+<!-- CHATBOT — Big Fat Smokys -->
+<style>
+#sgc-btn{position:fixed;bottom:28px;right:28px;z-index:9999;width:62px;height:62px;border-radius:50%;background:#FF6B1A;border:none;cursor:pointer;box-shadow:0 4px 24px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;font-size:26px;transition:transform .2s;}
+#sgc-btn:hover{transform:scale(1.1);}
+#sgc-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;border-radius:50%;background:#FF3B30;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+#sgc-win{position:fixed;bottom:102px;right:28px;z-index:9999;width:330px;background:#1A0D00;border-radius:16px;box-shadow:0 8px 48px rgba(0,0,0,0.55);display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(255,255,255,0.1);font-family:sans-serif;max-height:500px;}
+#sgc-win.open{display:flex;}
+#sgc-hd{background:#FF6B1A;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+#sgc-hd h4{font-size:14px;font-weight:700;color:#ffffff;margin:0;}
+#sgc-hd p{font-size:11px;color:rgba(255,255,255,0.8);margin:0;}
+#sgc-x{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.85);font-size:20px;padding:2px 6px;line-height:1;}
+#sgc-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;}
+.sgc-row{display:flex;gap:8px;align-items:flex-end;}
+.sgc-row.u{flex-direction:row-reverse;}
+.sgc-bub{max-width:85%;padding:9px 13px;border-radius:14px;font-size:13px;line-height:1.55;word-break:break-word;}
+.sgc-row.b .sgc-bub{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.92);border-bottom-left-radius:3px;}
+.sgc-row.u .sgc-bub{background:#FF6B1A;color:#ffffff;border-bottom-right-radius:3px;}
+.sgc-ic{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.sgc-qs{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.sgc-q{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:5px 10px;font-size:12px;color:rgba(255,255,255,0.85);cursor:pointer;white-space:nowrap;}
+.sgc-q:hover{background:rgba(255,255,255,0.16);}
+#sgc-form{padding:10px 12px;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:8px;flex-shrink:0;}
+#sgc-inp{flex:1;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:8px 14px;color:#fff;font-size:13px;outline:none;}
+#sgc-inp::placeholder{color:rgba(255,255,255,0.38);}
+#sgc-send{width:34px;height:34px;border-radius:50%;background:#FF6B1A;border:none;cursor:pointer;flex-shrink:0;align-self:flex-end;font-size:16px;}
+@media(max-width:420px){#sgc-win{width:calc(100vw - 24px);right:12px;}#sgc-btn{right:12px;bottom:16px;}}
+</style>
+
+<button id="sgc-btn" onclick="sgcToggle()" aria-label="Chat">💬<span id="sgc-badge">1</span></button>
+<div id="sgc-win">
+  <div id="sgc-hd">
+    <div><h4>Big Fat Smokys</h4><p>&#x25cf; Ask us anything</p></div>
+    <button id="sgc-x" onclick="sgcToggle()">&#x2715;</button>
+  </div>
+  <div id="sgc-msgs"></div>
+  <div id="sgc-form">
+    <input id="sgc-inp" type="text" placeholder="Type a question..." />
+    <button id="sgc-send">&#x27A4;</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  // ── DATA ──────────────────────────────
+  var FAQS = [
+  {p:["menu","what do you have","food","what can"],a:"Our menu: Smoked Brisket $14/lb, Smoky Chicken $11/lb, Smoky Pork $10/lb, Grilled Sausage $10/lb, 32oz Gumbo $12, Homemade Rolls 2 for $3, Fry Pies $4 each or 2 for $7. Plus sides and sauces! Order at bigfatsmokysubs.com"},
+  {p:["brisket"],a:"Smoked Brisket is $14/lb - our most popular cut. Slow-smoked in-house until tender and juicy. Order online or call 859-705-8665 for bigger orders!"},
+  {p:["chicken"],a:"Smoky Chicken is $11/lb - fall-off-the-bone smoked chicken. Get it by the pound and load up!"},
+  {p:["pork"],a:"Smoky Pork is $10/lb - slow-smoked pulled pork. Pairs great with our sauces and rolls."},
+  {p:["sausage"],a:"Grilled Sausage is $10/lb - house-seasoned and grilled fresh. Great alongside the other meats!"},
+  {p:["gumbo"],a:"32 oz Smoky Gumbo is $12! Choose mild, medium, or spicy. Rich, smoky, and packed full. One of our best sellers."},
+  {p:["roll","bread"],a:"Homemade Rolls are 2 for $3 - hearty, thick, and perfect for loading up with smoked meat and sauce."},
+  {p:["sauce"],a:"Our sauces: Sweet, Sweet and Spicy, Garlic Parmesan, Beer Cheese, Carolina Gold, Pimento Cheese. All house-made!"},
+  {p:["fry pie","dessert","pie"],a:"Fry Pies are $4 each or 2 for $7! Flavors: Lemon, Peach, Apple, Cherry. Fried fresh. Do not skip these."},
+  {p:["side","potato","bacon","pepper","rice","slaw"],a:"Our sides: Roasted Fingerling Potatoes $6, Smoky Bacon $6, Sweet Roasted Peppers $6, Saucy Rice $4, Slaw $2, Sweet Smoky Peppers $2. All made from scratch!"},
+  {p:["price","cost","how much"],a:"Meats are $10-$14/lb. Gumbo $12. Rolls $3. Fry Pies $4 each. Sides $2-$6. Drinks $1-$2. Order at bigfatsmokysubs.com!"},
+  {p:["hours","open","when","days","friday","saturday"],a:"We are open FRIDAY and SATURDAY ONLY in Harrodsburg, KY. Cash only until our official launch. Order online early - we sell out!"},
+  {p:["cater","catering","event","party","wedding","corporate","group"],a:"Yes! Catering is what we do best. We cater weddings, corporate events, parties, reunions, church events and more. Call 859-705-8665 to book your catering!"},
+  {p:["order","online","how to","pickup"],a:"Order online at bigfatsmokysubs.com (powered by Square). For bigger orders call ahead at 859-705-8665 so we have everything hot and ready!"},
+  {p:["cash","payment","card","credit"],a:"Cash only until our official launch! Plan accordingly. Order ahead at bigfatsmokysubs.com or call 859-705-8665."},
+  {p:["location","where","address","harrodsburg"],a:"We are in Harrodsburg, Kentucky. Open Friday and Saturday only! Visit bigfatsmokysubs.com for details."},
+  {p:["sell out","sold out"],a:"Yes we sell out! Order online early at bigfatsmokysubs.com and call ahead for bigger orders at 859-705-8665."},
+  {p:["phone","call","number","contact"],a:"Call us at 859-705-8665! Great for bigger orders and catering bookings."},
+  {p:["hello","hi","hey","help"],a:"Hey! Welcome to Big Fat Smokys. Open Fri and Sat in Harrodsburg, KY. Smoked meats by the pound, gumbo, fry pies, and catering. What can I help with?"},
+  ];
+  var QUICK = ["See the menu","Catering info","Hours and location","Order online"];
+  var FALLBACK = "Great question! Give us a call for the most accurate answer — we are happy to help!";
+
+  // ── DOM REFS ──────────────────────────
+  var win   = document.getElementById('sgc-win');
+  var msgs  = document.getElementById('sgc-msgs');
+  var inp   = document.getElementById('sgc-inp');
+  var badge = document.getElementById('sgc-badge');
+
+  // ── HELPERS ───────────────────────────
+  function addBot(text, withQuick) {
+    var row = document.createElement('div');
+    row.className = 'sgc-row b';
+    var qHTML = '';
+    if (withQuick) {
+      qHTML = '<div class="sgc-qs">';
+      for (var i = 0; i < QUICK.length; i++) {
+        qHTML += '<button class="sgc-q" onclick="sgcAsk(this.textContent)">' + QUICK[i] + '</button>';
+      }
+      qHTML += '</div>';
+    }
+    row.innerHTML = '<div class="sgc-ic">💬</div><div><div class="sgc-bub">' + text + '</div>' + qHTML + '</div>';
+    msgs.appendChild(row);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function addUser(text) {
+    var row = document.createElement('div');
+    row.className = 'sgc-row u';
+    row.innerHTML = '<div class="sgc-ic">&#x1F464;</div><div class="sgc-bub">' + text + '</div>';
+    msgs.appendChild(row);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function match(input) {
+    var q = input.toLowerCase().replace(/[^a-z0-9 ]/g, ' ');
+    for (var i = 0; i < FAQS.length; i++) {
+      for (var j = 0; j < FAQS[i].p.length; j++) {
+        if (q.indexOf(FAQS[i].p[j]) !== -1) {
+          return FAQS[i].a;
+        }
+      }
+    }
+    return null;
+  }
+
+  // ── PUBLIC API ────────────────────────
+  window.sgcToggle = function() {
+    if (win.classList.contains('open')) {
+      win.classList.remove('open');
+    } else {
+      win.classList.add('open');
+      badge.style.display = 'none';
+      inp.focus();
+    }
+  };
+
+  window.sgcSend = function() {
+    var text = inp.value.trim();
+    if (!text) return;
+    inp.value = '';
+    sgcAsk(text);
+  };
+
+  window.sgcAsk = function(text) {
+    addUser(text);
+    setTimeout(function() {
+      var answer = match(text) || FALLBACK;
+      addBot(answer, false);
+    }, 280);
+  };
+
+  // ── WIRE UP SEND BUTTON & ENTER KEY ──
+  document.getElementById('sgc-send').addEventListener('click', function() {
+    window.sgcSend();
+  });
+  inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') window.sgcSend();
+  });
+
+  // ── INIT GREETING ─────────────────────
+  addBot("Hey! Open Fri and Sat in Harrodsburg. Smoked meats by the pound. Come hungry!", true);
+
+})();
+</script>
+<!-- END CHATBOT -->
 </body>
 </html>
