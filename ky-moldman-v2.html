@@ -744,146 +744,152 @@ footer li a:hover{color:var(--g5);}
 
 
 
-<!-- ═══════════════════════════════
-     CHATBOT — KY Moldman (No AI / No Credits)
-════════════════════════════════ -->
+
+
+<!-- CHATBOT — KY Moldman -->
 <style>
-#sgc-btn{position:fixed;bottom:28px;right:28px;z-index:9999;width:62px;height:62px;border-radius:50%;background:#22A422;border:none;cursor:pointer;box-shadow:0 4px 24px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;font-size:28px;transition:transform .2s,box-shadow .2s;}
-#sgc-btn:hover{transform:scale(1.1);box-shadow:0 6px 32px rgba(0,0,0,0.5);}
-#sgc-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;border-radius:50%;background:#FF3B30;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;animation:sgcPulse 2s infinite;}
-@keyframes sgcPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.25);}}
-#sgc-win{position:fixed;bottom:104px;right:28px;z-index:9999;width:340px;max-height:520px;background:#050D05;border-radius:16px;box-shadow:0 8px 48px rgba(0,0,0,0.55);display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(255,255,255,0.09);font-family:'Inter',sans-serif;}
-#sgc-win.open{display:flex;animation:sgcUp .22s ease-out;}
-@keyframes sgcUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+#sgc-btn{position:fixed;bottom:28px;right:28px;z-index:9999;width:62px;height:62px;border-radius:50%;background:#22A422;border:none;cursor:pointer;box-shadow:0 4px 24px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;font-size:26px;transition:transform .2s;}
+#sgc-btn:hover{transform:scale(1.1);}
+#sgc-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;border-radius:50%;background:#FF3B30;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+#sgc-win{position:fixed;bottom:102px;right:28px;z-index:9999;width:330px;background:#050D05;border-radius:16px;box-shadow:0 8px 48px rgba(0,0,0,0.55);display:none;flex-direction:column;overflow:hidden;border:1px solid rgba(255,255,255,0.1);font-family:sans-serif;max-height:500px;}
+#sgc-win.open{display:flex;}
 #sgc-hd{background:#22A422;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-.sgc-hi{display:flex;align-items:center;gap:10px;}
-.sgc-av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;}
-.sgc-ht h4{font-size:14px;font-weight:700;color:#fff;margin:0;}
-.sgc-ht p{font-size:11px;color:rgba(255,255,255,0.78);margin:0;}
-.sgc-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;display:inline-block;margin-right:4px;box-shadow:0 0 0 2px rgba(76,175,80,0.3);}
-#sgc-x{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.8);font-size:20px;padding:4px;line-height:1;}
-#sgc-x:hover{color:#fff;}
-#sgc-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;max-height:340px;}
-#sgc-msgs::-webkit-scrollbar{width:3px;}
-#sgc-msgs::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:2px;}
+#sgc-hd h4{font-size:14px;font-weight:700;color:#ffffff;margin:0;}
+#sgc-hd p{font-size:11px;color:rgba(255,255,255,0.8);margin:0;}
+#sgc-x{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.85);font-size:20px;padding:2px 6px;line-height:1;}
+#sgc-msgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth;}
 .sgc-row{display:flex;gap:8px;align-items:flex-end;}
 .sgc-row.u{flex-direction:row-reverse;}
-.sgc-bub{max-width:82%;padding:9px 13px;border-radius:14px;font-size:13px;line-height:1.55;}
-.sgc-row.b .sgc-bub{background:rgba(255,255,255,0.09);color:rgba(255,255,255,0.92);border-bottom-left-radius:3px;}
-.sgc-row.u .sgc-bub{background:#22A422;color:#fff;border-bottom-right-radius:3px;}
-.sgc-ic{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
-.sgc-qs{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
-.sgc-q{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:12px;padding:5px 11px;font-size:12px;color:rgba(255,255,255,0.82);cursor:pointer;transition:background .2s;white-space:nowrap;}
-.sgc-q:hover{background:rgba(255,255,255,0.15);color:#fff;}
-#sgc-form{padding:10px 12px;border-top:1px solid rgba(255,255,255,0.07);display:flex;gap:8px;flex-shrink:0;background:rgba(0,0,0,0.18);}
-#sgc-inp{flex:1;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:8px 14px;color:#fff;font-size:13px;font-family:inherit;outline:none;}
-#sgc-inp::placeholder{color:rgba(255,255,255,0.35);}
-#sgc-inp:focus{border-color:rgba(255,255,255,0.28);}
-#sgc-send{width:34px;height:34px;border-radius:50%;background:#22A422;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:flex-end;transition:transform .15s;}
-#sgc-send:hover{transform:scale(1.1);}
-#sgc-send svg{width:14px;height:14px;fill:#fff;}
-@media(max-width:420px){#sgc-win{width:calc(100vw - 28px);right:14px;}#sgc-btn{right:14px;bottom:18px;}}
+.sgc-bub{max-width:85%;padding:9px 13px;border-radius:14px;font-size:13px;line-height:1.55;word-break:break-word;}
+.sgc-row.b .sgc-bub{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.92);border-bottom-left-radius:3px;}
+.sgc-row.u .sgc-bub{background:#22A422;color:#ffffff;border-bottom-right-radius:3px;}
+.sgc-ic{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.sgc-qs{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.sgc-q{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:12px;padding:5px 10px;font-size:12px;color:rgba(255,255,255,0.85);cursor:pointer;white-space:nowrap;}
+.sgc-q:hover{background:rgba(255,255,255,0.16);}
+#sgc-form{padding:10px 12px;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:8px;flex-shrink:0;}
+#sgc-inp{flex:1;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:8px 14px;color:#fff;font-size:13px;outline:none;}
+#sgc-inp::placeholder{color:rgba(255,255,255,0.38);}
+#sgc-send{width:34px;height:34px;border-radius:50%;background:#22A422;border:none;cursor:pointer;flex-shrink:0;align-self:flex-end;font-size:16px;}
+@media(max-width:420px){#sgc-win{width:calc(100vw - 24px);right:12px;}#sgc-btn{right:12px;bottom:16px;}}
 </style>
 
-<button id="sgc-btn" onclick="sgcToggle()" aria-label="Chat with us">💬<span id="sgc-badge">1</span></button>
+<button id="sgc-btn" onclick="sgcToggle()" aria-label="Chat">💬<span id="sgc-badge">1</span></button>
 <div id="sgc-win">
   <div id="sgc-hd">
-    <div class="sgc-hi">
-      <div class="sgc-av">💬</div>
-      <div class="sgc-ht"><h4>KY Moldman</h4><p><span class="sgc-dot"></span>Ask us anything</p></div>
-    </div>
-    <button id="sgc-x" onclick="sgcToggle()">✕</button>
+    <div><h4>KY Moldman</h4><p>&#x25cf; Ask us anything</p></div>
+    <button id="sgc-x" onclick="sgcToggle()">&#x2715;</button>
   </div>
   <div id="sgc-msgs"></div>
   <div id="sgc-form">
-    <input id="sgc-inp" type="text" placeholder="Type your question..." onkeydown="if(event.key==='Enter')sgcSend()"/>
-    <button id="sgc-send" onclick="sgcSend()">
-      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
-    </button>
+    <input id="sgc-inp" type="text" placeholder="Type a question..." />
+    <button id="sgc-send">&#x27A4;</button>
   </div>
 </div>
 
 <script>
-(function(){
-  const FAQS = [
-    {p:['estimate','quote','free','inspection','cost','price','how much'], a:'We offer FREE inspections and estimates! Call Wayne at 859-705-8665 and we\\'ll come assess the issue and give you a clear, honest quote. No pressure, no surprises.'},
-    {p:['mold','mould','remediation','remove mold'], a:'We do complete mold remediation — all types, all locations. We eliminate mold at the source with professional-grade treatments and address the underlying moisture issue so it doesn\\'t come back. Call 859-705-8665.'},
-    {p:['waterproof','water proof','wet basement','basement leak','leaking','moisture'], a:'We offer Basement Waterproofing with a LIFETIME WARRANTY! Drainage systems, sump pumps, vapor barriers — we keep your basement dry year-round, guaranteed. Call 859-705-8665 for a free inspection.'},
-    {p:['lifetime','warranty','guarantee'], a:'Yes — we offer a LIFETIME WARRANTY on our basement waterproofing services! It\\'s our promise that your basement stays dry. Call 859-705-8665 for details.'},
-    {p:['crawl space','crawlspace','encapsulation'], a:'We do full crawl space restoration — encapsulation, insulation, and structural repair. We transform damp, dirty crawl spaces into clean, energy-efficient foundations. Tagged \\'We Build U Back\\' because that\\'s exactly what we do.'},
-    {p:['emergency','24 hour','24hr','water removal','flood','flooding'], a:'🚨 We offer 24-HOUR EMERGENCY Water Removal! Call us immediately at 859-705-8665 — fast response minimizes structural damage and mold risk. Water damage gets worse by the hour. Don\\'t wait!'},
-    {p:['basement floor','stain','seal','floor staining','floor sealing'], a:'We do Basement Floor Staining & Sealing — professional finish that protects against moisture and wear while giving your basement a clean, polished look that lasts for years.'},
-    {p:['remodel','renovation','brickwork','stucco','basement remodel'], a:'Our Complete Basement Restoration & Remodeling uses brickwork and stucco for a sleek, cost-effective transformation. Check out the photos on our site — the results are stunning! Call 859-705-8665.'},
-    {p:['roof','roof clean','algae','moss','black streak','shingle'], a:'We offer Roof Soft-Wash Cleaning — low-pressure treatment that eliminates black streaks, algae, moss, and lichen without damaging your shingles. Safe for all roof types and results last much longer than pressure washing alone.'},
-    {p:['softwash','soft wash','pressure wash','house wash','exterior clean'], a:'We offer complete softwashing and pressure washing — house washing, roof cleaning, concrete, decks, fences, and windows. One call covers your entire exterior. Call 859-705-8665 for a free quote.'},
-    {p:['driveway','sidewalk','patio','concrete','pavers'], a:'We clean driveways, sidewalks, and patios with high-pressure surface cleaning. Removes oil stains, algae, mold, and years of grime — dramatic before-and-after results every time!'},
-    {p:['deck','fence','window'], a:'Yes! We clean and restore decks, fences (with staining), and windows as part of our full exterior cleaning system. Call 859-705-8665 for a complete exterior quote.'},
-    {p:['iicrc','certified','license','insured','wayne'], a:'Owner Wayne Lacey is IICRC Certified since 1996 — a Master Textile Cleaner and Restoration Technician. Licensed and insured. These are certifications most competitors simply don\\'t have.'},
-    {p:['location','area','serve','lexington','georgetown','nicholasville'], a:'We serve all of Central Kentucky — Lexington, Georgetown, Nicholasville, Versailles, Frankfort, Winchester, Richmond, Harrodsburg, and surrounding areas. Call 859-705-8665.'},
-    {p:['phone','call','contact','number'], a:'Call or text us at 859-705-8665. Free inspections and estimates available across Central KY!'},
-    {p:['hello','hi','hey','help'], a:'Hey there! 👋 Got mold, water damage, or need exterior cleaning? I can answer questions about all our services. What\\'s going on at your home?'},
-    {p:['build u back','build you back','slogan'], a:'\\'We Build U Back\\' is our promise for all restoration work — mold, waterproofing, crawl space, water removal, and basement remodeling. We don\\'t just fix the symptom, we restore your home completely.'},
+(function() {
+  // ── DATA ──────────────────────────────
+  var FAQS = [
+  {p:["estimate","quote","free","inspection","cost","price","how much"],a:"We offer FREE inspections and estimates! Call Wayne at 859-705-8665 and we will assess the issue and give you a clear honest quote. No pressure, no surprises."},
+  {p:["mold","mould","remediation","remove mold"],a:"We do complete mold remediation - all types, all locations. We eliminate mold at the source and address the moisture issue so it does not come back. Call 859-705-8665."},
+  {p:["waterproof","wet basement","basement leak","leaking","moisture"],a:"We offer Basement Waterproofing with a LIFETIME WARRANTY! Drainage systems, sump pumps, vapor barriers - keeping your basement dry year-round, guaranteed. Call 859-705-8665."},
+  {p:["lifetime","warranty","guarantee"],a:"Yes! We offer a LIFETIME WARRANTY on our basement waterproofing. Your basement stays dry - guaranteed. Call 859-705-8665 for details."},
+  {p:["crawl space","crawlspace","encapsulation"],a:"We do full crawl space restoration - encapsulation, insulation, and structural repair. We transform damp crawl spaces into clean energy-efficient foundations."},
+  {p:["emergency","24 hour","water removal","flood","flooding"],a:"We offer 24-HOUR EMERGENCY Water Removal! Call 859-705-8665 immediately. Fast response minimizes structural damage and mold risk. Water damage gets worse by the hour!"},
+  {p:["basement floor","stain","seal","floor staining"],a:"We do Basement Floor Staining and Sealing - professional finish that protects against moisture and gives your basement a clean polished look that lasts for years."},
+  {p:["remodel","renovation","brickwork","stucco","basement remodel"],a:"Our Complete Basement Restoration uses brickwork and stucco for a sleek cost-effective transformation. Scroll up to see real project photos! Call 859-705-8665."},
+  {p:["roof","roof clean","algae","moss","black streak","shingle"],a:"We offer Roof Soft-Wash Cleaning - low pressure that eliminates black streaks, algae, moss and lichen without damaging shingles. Safe for all roof types!"},
+  {p:["softwash","soft wash","pressure wash","house wash","exterior"],a:"We offer complete softwashing and pressure washing - house washing, roof cleaning, concrete, decks, fences and windows. One call covers your entire exterior! Call 859-705-8665."},
+  {p:["driveway","sidewalk","patio","concrete","pavers"],a:"We clean driveways, sidewalks and patios with high-pressure surface cleaning. Removes oil stains, algae, mold and years of grime. Dramatic before-and-after results!"},
+  {p:["iicrc","certified","license","insured"],a:"Owner Wayne Lacey is IICRC Certified since 1996 - a Master Textile Cleaner and Restoration Technician. Licensed and insured. Certifications most competitors do not have."},
+  {p:["location","area","serve","lexington","georgetown","nicholasville"],a:"We serve all of Central Kentucky - Lexington, Georgetown, Nicholasville, Versailles, Frankfort, Winchester, Richmond, Harrodsburg and surrounding areas. Call 859-705-8665."},
+  {p:["phone","call","contact","number"],a:"Call or text us at 859-705-8665. Free inspections available across Central KY!"},
+  {p:["hello","hi","hey","help"],a:"Hey there! Got mold, water damage, or need exterior cleaning? I can help with questions about all our services. What is going on at your home?"},
   ];
-  const QUICK = ['Free inspection','Mold in my basement','Lifetime warranty?','Emergency water removal'];
-  const FALLBACK = "Great question! For the most accurate answer, give us a call — we're happy to help. 📞";
+  var QUICK = ["Free inspection","Mold in my basement","Lifetime warranty?","Emergency water removal"];
+  var FALLBACK = "Great question! Give us a call for the most accurate answer — we are happy to help!";
 
-  // Render greeting + quick questions
-  const msgs = document.getElementById('sgc-msgs');
-  addBot('Hey! Got mold, water damage, or need exterior cleaning? Ask me anything below! 💬', true);
+  // ── DOM REFS ──────────────────────────
+  var win   = document.getElementById('sgc-win');
+  var msgs  = document.getElementById('sgc-msgs');
+  var inp   = document.getElementById('sgc-inp');
+  var badge = document.getElementById('sgc-badge');
 
-  function addBot(text, withQuick){
-    const row = document.createElement('div');
+  // ── HELPERS ───────────────────────────
+  function addBot(text, withQuick) {
+    var row = document.createElement('div');
     row.className = 'sgc-row b';
-    let qs = '';
-    if(withQuick){
-      qs = '<div class="sgc-qs">' + QUICK.map(q=>`<button class="sgc-q" onclick="sgcAsk('${q.replace(/'/g,"\'")}')">${q}</button>`).join('') + '</div>';
+    var qHTML = '';
+    if (withQuick) {
+      qHTML = '<div class="sgc-qs">';
+      for (var i = 0; i < QUICK.length; i++) {
+        qHTML += '<button class="sgc-q" onclick="sgcAsk(this.textContent)">' + QUICK[i] + '</button>';
+      }
+      qHTML += '</div>';
     }
-    row.innerHTML = `<div class="sgc-ic">💬</div><div><div class="sgc-bub">${text}</div>${qs}</div>`;
+    row.innerHTML = '<div class="sgc-ic">💬</div><div><div class="sgc-bub">' + text + '</div>' + qHTML + '</div>';
     msgs.appendChild(row);
     msgs.scrollTop = msgs.scrollHeight;
   }
 
-  function addUser(text){
-    const row = document.createElement('div');
+  function addUser(text) {
+    var row = document.createElement('div');
     row.className = 'sgc-row u';
-    row.innerHTML = `<div class="sgc-ic">👤</div><div class="sgc-bub">${text}</div>`;
+    row.innerHTML = '<div class="sgc-ic">&#x1F464;</div><div class="sgc-bub">' + text + '</div>';
     msgs.appendChild(row);
     msgs.scrollTop = msgs.scrollHeight;
   }
 
-  function match(input){
-    const q = input.toLowerCase().replace(/[^a-z0-9 ]/g,' ');
-    for(const faq of FAQS){
-      for(const p of faq.p){
-        if(q.includes(p)) return faq.a;
+  function match(input) {
+    var q = input.toLowerCase().replace(/[^a-z0-9 ]/g, ' ');
+    for (var i = 0; i < FAQS.length; i++) {
+      for (var j = 0; j < FAQS[i].p.length; j++) {
+        if (q.indexOf(FAQS[i].p[j]) !== -1) {
+          return FAQS[i].a;
+        }
       }
     }
     return null;
   }
 
-  window.sgcToggle = function(){
-    const w = document.getElementById('sgc-win');
-    document.getElementById('sgc-badge').style.display='none';
-    w.classList.toggle('open');
-    if(w.classList.contains('open')) document.getElementById('sgc-inp').focus();
+  // ── PUBLIC API ────────────────────────
+  window.sgcToggle = function() {
+    if (win.classList.contains('open')) {
+      win.classList.remove('open');
+    } else {
+      win.classList.add('open');
+      badge.style.display = 'none';
+      inp.focus();
+    }
   };
 
-  window.sgcSend = function(){
-    const inp = document.getElementById('sgc-inp');
-    const text = inp.value.trim();
-    if(!text) return;
+  window.sgcSend = function() {
+    var text = inp.value.trim();
+    if (!text) return;
     inp.value = '';
     sgcAsk(text);
   };
 
-  window.sgcAsk = function(text){
+  window.sgcAsk = function(text) {
     addUser(text);
-    // Small delay to feel natural
-    setTimeout(()=>{
-      const answer = match(text) || FALLBACK;
+    setTimeout(function() {
+      var answer = match(text) || FALLBACK;
       addBot(answer, false);
-    }, 320);
+    }, 280);
   };
+
+  // ── WIRE UP SEND BUTTON & ENTER KEY ──
+  document.getElementById('sgc-send').addEventListener('click', function() {
+    window.sgcSend();
+  });
+  inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') window.sgcSend();
+  });
+
+  // ── INIT GREETING ─────────────────────
+  addBot("Hey! Ask about mold, waterproofing, softwashing or any of our services!", true);
+
 })();
 </script>
 <!-- END CHATBOT -->
