@@ -379,14 +379,19 @@ footer li a:hover{color:var(--accent2);}
 }
 </style>
 <style>
-/* Static version — force ALL animated content visible */
+/* Static version — force ALL scroll-reveal content visible (no JS animation) */
 .hero-eyebrow, .hero-h1 .line span, .hero-tag, .hero-desc, .hero-btns, .area-note,
-.gsap-fade, .pc, .feat, .gi, .sw-gi, .sw-info-card, .bsmt-img, .bsmt-feat,
-.gsap-showroom-text, .gsap-showroom-img, .gsap-mural-img, .gsap-mural-text {
+.eyebrow, .sec-h2, .sec-lead, .pc, .feat, .gi, .sw-gi, .sw-info-card,
+.bsmt-img, .bsmt-feat, .gsap-fade, .gsap-showroom-text, .gsap-showroom-img,
+.gsap-mural-img, .gsap-mural-text, .cta-btns, .cta-phone, .sub, .tc,
+.why-content, .why-img-wrap {
   opacity: 1 !important;
   transform: none !important;
 }
 .hero-h1 .line span { transform: translateY(0) !important; }
+/* keep hover overlays and scroll indicator as-is */
+.gi-ov { opacity: 0 !important; }
+.gi:hover .gi-ov { opacity: 1 !important; }
 </style>
 </head>
 <body>
