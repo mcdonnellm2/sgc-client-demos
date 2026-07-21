@@ -378,6 +378,14 @@ footer li a:hover{color:var(--accent2);}
   #canvas3d{display:none;}
 }
 </style>
+<style>
+/* Static version — force hero text visible (no JS animation needed) */
+.hero-eyebrow, .hero-h1 .line span, .hero-tag, .hero-desc, .hero-btns, .area-note {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.hero-h1 .line span { transform: translateY(0) !important; }
+</style>
 </head>
 <body>
 <!-- CHATBOT — KY Flooring & Cabinets — loads early, inits on DOMContentLoaded -->
